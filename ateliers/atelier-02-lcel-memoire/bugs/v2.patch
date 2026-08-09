@@ -1,0 +1,11 @@
+--- a/hirekit/services/matching.py
++++ b/hirekit/services/matching.py
+@@ -138,7 +138,7 @@
+     from langchain_classic.memory import ConversationBufferWindowMemory
+
+     return ConversationBufferWindowMemory(
+-        k=k,
++        k=0,
+         memory_key="history",
+         return_messages=True,
+     )

@@ -1,0 +1,17 @@
+--- a/hirekit/services/matching.py
++++ b/hirekit/services/matching.py
+@@ -88,7 +88,6 @@
+     parser = get_match_parser()
+     prompt = get_matching_prompt()
+
+-    # Le parser est retiré (bug) — la chaîne retourne du texte brut
+     chain = (
+         RunnablePassthrough.assign(cv=lambda x: clean_cv(x["cv"]))
+         .assign(offer=lambda x: clean_offer(x["offer"]))
+         .assign(format_instructions=lambda _: parser.get_format_instructions())
+         | prompt
+         | llm
+-        | parser
+     )
+
+     return chain

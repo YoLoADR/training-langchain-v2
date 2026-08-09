@@ -1,9 +1,12 @@
 """Output Parsers — extraction structurée des sorties du LLM.
 
 AT01 — Output Parsers : PydanticOutputParser, CommaSeparatedListOutputParser.
+AT02 — Output Parser pour le matching : MatchResult.
 """
 
 from __future__ import annotations
+
+from langchain_core.output_parsers import PydanticOutputParser, CommaSeparatedListOutputParser
 
 from pydantic import BaseModel, Field
 
@@ -53,21 +56,19 @@ class InterviewGuide(BaseModel):
     questions_offre: list[str] = Field(description="Questions spécifiques à l'offre")
 
 
-# ─── Parsers (à implémenter en AT01) ─────────────────────────────────────────
+# ─── Parsers ─────────────────────────────────────────────────────────────────
 
 
-def get_cv_parser() -> None:
+def get_cv_parser() -> PydanticOutputParser:
     """AT01 — retourne un PydanticOutputParser pour CVInfo."""
-    raise NotImplementedError("AT01 — implémentez get_cv_parser() dans hirekit/llm/parsers.py")
+    return PydanticOutputParser(pydantic_object=CVInfo)
 
 
-def get_match_parser() -> None:
+def get_match_parser() -> PydanticOutputParser:
     """AT02 — retourne un PydanticOutputParser pour MatchResult."""
-    raise NotImplementedError("AT02 — implémentez get_match_parser() dans hirekit/llm/parsers.py")
+    return PydanticOutputParser(pydantic_object=MatchResult)
 
 
-def get_skills_list_parser() -> None:
+def get_skills_list_parser() -> CommaSeparatedListOutputParser:
     """AT01 — retourne un CommaSeparatedListOutputParser pour extraire une liste de compétences."""
-    raise NotImplementedError(
-        "AT01 — implémentez get_skills_list_parser() dans hirekit/llm/parsers.py"
-    )
+    return CommaSeparatedListOutputParser()

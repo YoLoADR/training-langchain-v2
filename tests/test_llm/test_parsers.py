@@ -43,8 +43,36 @@ class TestGetCVParser:
         assert len(instructions) > 0
 
 
+class TestGetMatchParser:
+    """AT02 — get_match_parser() doit retourner un PydanticOutputParser pour MatchResult."""
+
+    def test_get_match_parser_returns_parser(self):
+        from hirekit.llm.parsers import get_match_parser
+
+        parser = get_match_parser()
+        assert parser is not None
+
+    def test_match_parser_has_format_instructions(self):
+        from hirekit.llm.parsers import get_match_parser
+
+        parser = get_match_parser()
+        instructions = parser.get_format_instructions()
+        assert isinstance(instructions, str)
+        assert len(instructions) > 0
+
+
+class TestGetSkillsListParser:
+    """AT01 — get_skills_list_parser() doit retourner un CommaSeparatedListOutputParser."""
+
+    def test_get_skills_list_parser_returns_parser(self):
+        from hirekit.llm.parsers import get_skills_list_parser
+
+        parser = get_skills_list_parser()
+        assert parser is not None
+
+
 class TestMatchResult:
-    """AT02 — le modèle Pydantic MatchResult (prévu pour AT02)."""
+    """AT02 — le modèle Pydantic MatchResult."""
 
     def test_match_result_has_score_and_justification(self):
         from hirekit.llm.parsers import MatchResult

@@ -1,0 +1,13 @@
+--- a/hirekit/services/matching.py
++++ b/hirekit/services/matching.py
+@@ -53,8 +53,8 @@
+     return offer_text.strip()
+
+
+-clean_cv_lambda = RunnableLambda(lambda x: clean_cv(x["cv"]), name="clean_cv")
+-clean_offer_lambda = RunnableLambda(lambda x: clean_offer(x["offer"]), name="clean_offer")
++clean_cv_lambda = RunnableLambda(clean_cv, name="clean_cv")
++clean_offer_lambda = RunnableLambda(clean_offer, name="clean_offer")
+
+
+ # ─── Chaîne LCEL de matching ─────────────────────────────────────────────────

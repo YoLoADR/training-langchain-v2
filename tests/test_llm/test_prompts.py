@@ -16,7 +16,6 @@ class TestSystemPrompt:
 class TestGetCVExtractionPrompt:
     """AT01 — get_cv_extraction_prompt() doit retourner un PromptTemplate."""
 
-    @pytest.mark.xfail(reason="AT01 non implémenté sur cette branche")
     def test_get_cv_extraction_prompt(self):
         from hirekit.llm.prompts import get_cv_extraction_prompt
 
@@ -25,10 +24,20 @@ class TestGetCVExtractionPrompt:
         assert hasattr(prompt, "format")
 
 
+class TestGetMatchingPrompt:
+    """AT02 — get_matching_prompt() doit retourner un ChatPromptTemplate."""
+
+    def test_get_matching_prompt(self):
+        from hirekit.llm.prompts import get_matching_prompt
+
+        prompt = get_matching_prompt()
+        assert prompt is not None
+        assert hasattr(prompt, "format")
+
+
 class TestFewShotExampleSelector:
     """AT01 (Bonus) — ExampleSelector dynamique."""
 
-    @pytest.mark.xfail(reason="AT01 Bonus non implémenté sur cette branche")
     def test_get_few_shot_example_selector(self):
         from hirekit.llm.prompts import get_few_shot_example_selector
 
