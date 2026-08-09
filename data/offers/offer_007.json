@@ -1,0 +1,20 @@
+{
+  "titre": "Alternant Développeur Backend Java",
+  "entreprise": "FinTechCorp",
+  "description": "Alternance en développement backend Java Spring Boot. Vous participez au développement d'API REST et aux tests unitaires.",
+  "competences": [
+    "Java",
+    "Spring Boot",
+    "SQL",
+    "Git",
+    "Docker"
+  ],
+  "localisation": "Paris",
+  "salaire_min": 18000,
+  "salaire_max": 24000,
+  "contrat": "Alternance",
+  "experience_requise": "Bac+3 en cours",
+  "teletravail": "présentiel",
+  "categorie": "backend",
+  "id": "offer_007"
+}

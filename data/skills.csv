@@ -1,0 +1,101 @@
+id,nom,categorie,mots_cles
+skill_001,React,frontend,react js frontend hooks redux composant spa
+skill_002,Vue.js,frontend,vue js frontend framework composant reactive
+skill_003,Angular,frontend,angular framework typescript frontend composant
+skill_004,JavaScript,frontend,javascript js ecmascript web frontend
+skill_005,TypeScript,frontend,typescript ts typage javascript frontend
+skill_006,HTML/CSS,frontend,html css web markup style responsive
+skill_007,Next.js,frontend,next js react ssr seo frontend
+skill_008,Svelte,frontend,svelte js frontend framework compile
+skill_009,Tailwind CSS,frontend,tailwind css utility design frontend
+skill_010,Redux,frontend,redux state management react frontend
+skill_011,Sass/SCSS,frontend,sass scss css preprocessor style
+skill_012,Web Components,frontend,web components custom elements shadow dom
+skill_013,Webpack,frontend,webpack bundler module frontend build
+skill_014,Vite,frontend,vite bundler frontend build fast hmr
+skill_015,Python,backend,python langage programmation backend scripting
+skill_016,Django,backend,django python web framework backend orm
+skill_017,FastAPI,backend,fastapi python api rest async backend
+skill_018,Flask,backend,flask python web micro framework backend
+skill_019,Java,backend,java jvm backend enterprise spring
+skill_020,Spring Boot,backend,spring boot java backend framework microservice
+skill_021,Node.js,backend,node js javascript backend server runtime
+skill_022,Express,backend,express js node web framework backend
+skill_023,Go,backend,go golang backend langage compile concurrent
+skill_024,Rust,backend,rust langage backend systemes securise
+skill_025,GraphQL,backend,graphql api query schema backend
+skill_026,REST API,backend,rest api http endpoints backend microservice
+skill_027,gRPC,backend,grpc rpc protobuf microservice backend
+skill_028,NestJS,backend,nestjs node typescript framework backend
+skill_029,C#,backend,c# dotnet backend microsoft framework
+skill_030,PHP,backend,php web backend langage serveur
+skill_031,Laravel,backend,laravel php framework backend mvc
+skill_032,Ruby on Rails,backend,ruby rails framework backend mvc
+skill_033,Microservices,backend,microservices architecture distributed backend
+skill_034,Celery,backend,celery python async task queue backend
+skill_035,Redis,backend,redis cache key-value backend session
+skill_036,RabbitMQ,backend,rabbitmq message queue broker backend
+skill_037,Docker,devops,docker conteneur container devops virtualisation
+skill_038,Kubernetes,devops,kubernetes k8s orchestration conteneur devops
+skill_039,Terraform,devops,terraform iac infrastructure code devops
+skill_040,Ansible,devops,ansible automation configuration devops playbook
+skill_041,AWS,devops,aws amazon cloud ec2 s3 devops
+skill_042,GitLab CI,devops,gitlab ci cd pipeline devops automation
+skill_043,Jenkins,devops,jenkins ci cd pipeline automation devops
+skill_044,Prometheus,devops,prometheus monitoring metrics devops observabilite
+skill_045,Grafana,devops,grafana dashboard monitoring visualisation devops
+skill_046,Linux,devops,linux systeme unix shell devops administration
+skill_047,Nginx,devops,nginx reverse proxy web server devops load balancer
+skill_048,Helm,devops,helm kubernetes package manager devops chart
+skill_049,ArgoCD,devops,argocd gitops kubernetes deploy devops
+skill_050,Vault,devops,vault secrets management devops security
+skill_051,SQL,data,sql base de donnees requetage data query
+skill_052,PostgreSQL,data,postgresql postgres sql database data relationnel
+skill_053,MongoDB,data,mongodb nosql document database data json
+skill_054,Spark,data,spark big data distributed processing etl
+skill_055,Airflow,data,airflow pipeline data orchestration etl dag
+skill_056,Kafka,data,kafka streaming data event message broker
+skill_057,Snowflake,data,snowflake data warehouse cloud analytics
+skill_058,dbt,data,dbt data build tool transformation analytics
+skill_059,Tableau,data,tableau bi dashboard visualisation analytics data
+skill_060,Power BI,data,power bi microsoft dashboard analytics data
+skill_061,Pandas,data,pandas python data analysis dataframe manipulation
+skill_062,Elasticsearch,data,elasticsearch search engine data indexing lucene
+skill_063,React Native,mobile,react native mobile cross platform ios android
+skill_064,Flutter,mobile,flutter dart mobile cross platform google
+skill_065,Swift,mobile,swift ios mobile apple xcode
+skill_066,Kotlin,mobile,kotlin android mobile jvm google
+skill_067,iOS,mobile,ios apple mobile development swift
+skill_068,Android,mobile,android google mobile java kotlin sdk
+skill_069,Xamarin,mobile,xamarin c# mobile cross platform microsoft
+skill_070,Ionic,mobile,ionic hybrid mobile web angular
+skill_071,Figma,design,figma design ui prototype collaboratif
+skill_072,Sketch,design,sketch design ui mac vectoriel
+skill_073,Photoshop,design,photoshop adobe design image retouchage
+skill_074,Illustrator,design,illustrator adobe design vectoriel logo
+skill_075,Design System,design,design system components guidelines ui library
+skill_076,Prototypage,design,prototypage design wireframe mockup interaction
+skill_077,User Research,design,user research ux recherche utilisateur test
+skill_078,After Effects,design,after effects motion design animation adobe
+skill_079,InVision,design,invision design prototype collaboration handoff
+skill_080,Copywriting,design,copywriting content design texte ux writing
+skill_081,Communication,soft_skills,communication expression ecrit oral clarte
+skill_082,Travail en équipe,soft_skills,travail equipe collaboration cooperation groupe
+skill_083,Leadership,soft_skills,leadership management encadrement vision influence
+skill_084,Résolution de problèmes,soft_skills,resolution problemes analyse solution creativite
+skill_085,Gestion du temps,soft_skills,gestion temps priorites organisation planning
+skill_086,Adaptabilité,soft_skills,adaptabilite flexibilite changement resilience
+skill_087,Esprit critique,soft_skills,esprit critique analyse reflexion judgement
+skill_088,Créativité,soft_skills,creativite innovation idee originalite brainstorming
+skill_089,Négociation,soft_skills,negociation persuasion argumentation deal
+skill_090,Prise de décision,soft_skills,decision choix jugement autonomie responsabilite
+skill_091,Gestion du stress,soft_skills,stress pression resilience calme gestion
+skill_092,Empathie,soft_skills,empathie ecoute comprehension autrui relation
+skill_093,Mentorat,soft_skills,mentorat coaching formation accompagnement transmission
+skill_094,Curiosité,soft_skills,curiosite apprentissage exploration initiative
+skill_095,Anglais,languages,anglais english international business communication
+skill_096,Espagnol,languages,espagnol spanish latin international
+skill_097,Allemand,languages,allemand german europe international
+skill_098,Chinois,languages,chinois mandarin chine international business
+skill_099,Arabe,languages,arabe arabic moyen-orient international
+skill_100,Italien,languages,italien italian europe latin

@@ -1,0 +1,20 @@
+{
+  "titre": "Senior Backend Java Engineer",
+  "entreprise": "Enterprise Systems",
+  "description": "Architecte et développe des microservices Java haute disponibilité. Migration vers Kafka et refonte de l'architecture. Systèmes bancaires.",
+  "competences": [
+    "Java",
+    "Spring Boot",
+    "Microservices",
+    "Kafka",
+    "PostgreSQL"
+  ],
+  "localisation": "Paris",
+  "salaire_min": 75000,
+  "salaire_max": 100000,
+  "contrat": "CDI",
+  "experience_requise": "7+ ans",
+  "teletravail": "hybride (3j/s)",
+  "categorie": "backend",
+  "id": "offer_010"
+}

@@ -1,0 +1,20 @@
+{
+  "titre": "Site Reliability Engineer",
+  "entreprise": "InfraOps",
+  "description": "SRE pour garantir la disponibilité de nos services. Monitoring Prometheus, automatisation Ansible, gestion d'incidents.",
+  "competences": [
+    "Kubernetes",
+    "Docker",
+    "Prometheus",
+    "Ansible",
+    "Linux"
+  ],
+  "localisation": "Strasbourg",
+  "salaire_min": 50000,
+  "salaire_max": 70000,
+  "contrat": "CDI",
+  "experience_requise": "4+ ans",
+  "teletravail": "hybride (2j/s)",
+  "categorie": "devops",
+  "id": "offer_012"
+}

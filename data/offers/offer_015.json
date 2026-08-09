@@ -1,0 +1,20 @@
+{
+  "titre": "Scrum Master",
+  "entreprise": "AgileCorp",
+  "description": "Scrum Master pour accompagner 2 équipes dans leur transformation Agile. Facilitation des ceremonies, coaching, amélioration continue.",
+  "competences": [
+    "Agile/Scrum",
+    "Jira",
+    "KPI/OKR",
+    "Coaching",
+    "Facilitation"
+  ],
+  "localisation": "Nantes",
+  "salaire_min": 45000,
+  "salaire_max": 60000,
+  "contrat": "CDI",
+  "experience_requise": "3+ ans",
+  "teletravail": "hybride (2j/s)",
+  "categorie": "po",
+  "id": "offer_015"
+}

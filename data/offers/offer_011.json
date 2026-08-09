@@ -1,0 +1,20 @@
+{
+  "titre": "Développeur Frontend React",
+  "entreprise": "WebApp Solutions",
+  "description": "Développeur React pour rejoindre une équipe de 6 personnes. Vous travaillez sur une app de gestion interne avec dashboard et visualisations.",
+  "competences": [
+    "React",
+    "JavaScript",
+    "TypeScript",
+    "HTML/CSS",
+    "Redux"
+  ],
+  "localisation": "Rennes",
+  "salaire_min": 40000,
+  "salaire_max": 55000,
+  "contrat": "CDI",
+  "experience_requise": "2+ ans",
+  "teletravail": "full remote",
+  "categorie": "frontend",
+  "id": "offer_011"
+}

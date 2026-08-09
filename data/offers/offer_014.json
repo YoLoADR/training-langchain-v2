@@ -1,0 +1,20 @@
+{
+  "titre": "Data Analyst Junior",
+  "entreprise": "InsightsCorp",
+  "description": "Premier poste en data analysis. Vous créez des dashboards, des rapports et analysez les métriques produit. SQL et Python requis.",
+  "competences": [
+    "SQL",
+    "Python",
+    "Analytics",
+    "Tableau",
+    "Data Analysis"
+  ],
+  "localisation": "Marseille",
+  "salaire_min": 35000,
+  "salaire_max": 45000,
+  "contrat": "CDI",
+  "experience_requise": "0-2 ans",
+  "teletravail": "hybride (3j/s)",
+  "categorie": "data",
+  "id": "offer_014"
+}

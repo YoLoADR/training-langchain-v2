@@ -1,0 +1,20 @@
+{
+  "titre": "Développeur Python Backend",
+  "entreprise": "DataFlow Systems",
+  "description": "Rejoignez notre équipe backend pour développer des APIs REST en FastAPI et maintenir nos microservices. Stack: Python, Django, FastAPI, PostgreSQL.",
+  "competences": [
+    "Python",
+    "FastAPI",
+    "Django",
+    "PostgreSQL",
+    "Docker"
+  ],
+  "localisation": "Lyon",
+  "salaire_min": 45000,
+  "salaire_max": 60000,
+  "contrat": "CDI",
+  "experience_requise": "3+ ans",
+  "teletravail": "full remote",
+  "categorie": "backend",
+  "id": "offer_002"
+}

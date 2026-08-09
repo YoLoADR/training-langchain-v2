@@ -1,0 +1,20 @@
+{
+  "titre": "Lead Développeur React",
+  "entreprise": "TechVibes",
+  "description": "Nous recherchons un Lead Développeur React pour piloter la refonte de notre plateforme SaaS. Vous encadrez une équipe de 4 développeurs et définissez l'architecture frontend.",
+  "competences": [
+    "React",
+    "TypeScript",
+    "Next.js",
+    "Redux",
+    "Node.js"
+  ],
+  "localisation": "Paris",
+  "salaire_min": 65000,
+  "salaire_max": 85000,
+  "contrat": "CDI",
+  "experience_requise": "5+ ans",
+  "teletravail": "hybride (3j/s)",
+  "categorie": "frontend",
+  "id": "offer_001"
+}

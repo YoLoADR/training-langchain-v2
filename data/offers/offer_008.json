@@ -1,0 +1,20 @@
+{
+  "titre": "Senior Data Engineer",
+  "entreprise": "BigData Insights",
+  "description": "Architecture de pipelines de données à grande échelle. Stack: Spark, Airflow, Kafka, Snowflake. Vous gérez 5TB+ de données par jour.",
+  "competences": [
+    "Python",
+    "Spark",
+    "Airflow",
+    "Kafka",
+    "Snowflake"
+  ],
+  "localisation": "Paris",
+  "salaire_min": 70000,
+  "salaire_max": 95000,
+  "contrat": "CDI",
+  "experience_requise": "6+ ans",
+  "teletravail": "hybride (3j/s)",
+  "categorie": "data",
+  "id": "offer_008"
+}

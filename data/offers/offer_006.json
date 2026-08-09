@@ -1,0 +1,20 @@
+{
+  "titre": "Développeur Fullstack Junior",
+  "entreprise": "StartupMakers",
+  "description": "Premier poste en développement fullstack. Vous travaillez sur une app MERN stack et apprenez les bonnes pratiques avec une équipe senior.",
+  "competences": [
+    "JavaScript",
+    "React",
+    "Node.js",
+    "MongoDB",
+    "HTML/CSS"
+  ],
+  "localisation": "Toulouse",
+  "salaire_min": 32000,
+  "salaire_max": 40000,
+  "contrat": "CDI",
+  "experience_requise": "0-2 ans",
+  "teletravail": "hybride (2j/s)",
+  "categorie": "fullstack",
+  "id": "offer_006"
+}

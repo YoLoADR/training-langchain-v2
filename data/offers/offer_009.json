@@ -1,0 +1,20 @@
+{
+  "titre": "Product Owner Sénior",
+  "entreprise": "ProductMakers",
+  "description": "PO senior pour gérer 3 squads Agile. Vous êtes responsable de la roadmap, du backlog, et des ceremonies Scrum. Expérience B2B SaaS requise.",
+  "competences": [
+    "Agile/Scrum",
+    "Jira",
+    "User Stories",
+    "Roadmap",
+    "KPI/OKR"
+  ],
+  "localisation": "Lille",
+  "salaire_min": 60000,
+  "salaire_max": 80000,
+  "contrat": "CDI",
+  "experience_requise": "5+ ans",
+  "teletravail": "hybride (2j/s)",
+  "categorie": "po",
+  "id": "offer_009"
+}

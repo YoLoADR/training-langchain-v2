@@ -1,0 +1,2210 @@
+[
+  {
+    "id": "cv_001",
+    "nom": "Marie Dubois",
+    "prenom": "Marie",
+    "nom_de_famille": "Dubois",
+    "email": "marie.dubois@icloud.com",
+    "telephone": "06 50 78 97 82",
+    "titre": "Developpeuse Fullstack - 5 ans d'experience",
+    "categorie": "frontend",
+    "competences": [
+      {
+        "nom": "React",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "TypeScript",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "JavaScript",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "HTML/CSS",
+        "niveau": "avancé",
+        "annees": 7
+      },
+      {
+        "nom": "Next.js",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Redux",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Node.js",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "GraphQL",
+        "niveau": "intermédiaire",
+        "annees": 2
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Lead Frontend",
+        "entreprise": "TechCorp",
+        "duree": "3 ans",
+        "description": "Refonte de l'architecture React, mentorat de 3 développeurs"
+      },
+      {
+        "poste": "Développeur React",
+        "entreprise": "StartupXYZ",
+        "duree": "2 ans",
+        "description": "Migration Angular vers React, mise en place de tests Jest"
+      },
+      {
+        "poste": "Développeur Frontend",
+        "entreprise": "WebAgency",
+        "duree": "2 ans",
+        "description": "Développement de sites vitrines et dashboards"
+      }
+    ],
+    "formations": [
+      "Master Informatique, Université Paris-Saclay (2018)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_002",
+    "nom": "Karim Benali",
+    "prenom": "Karim",
+    "nom_de_famille": "Benali",
+    "email": "karim.benali@outlook.fr",
+    "telephone": "06 85 60 79 42",
+    "titre": "Developpeur Backend - 4 ans d'experience",
+    "categorie": "backend",
+    "competences": [
+      {
+        "nom": "Python",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Django",
+        "niveau": "avancé",
+        "annees": 5
+      },
+      {
+        "nom": "FastAPI",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "PostgreSQL",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Docker",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Redis",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "Celery",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "pytest",
+        "niveau": "avancé",
+        "annees": 4
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Backend Engineer",
+        "entreprise": "DataTech",
+        "duree": "3 ans",
+        "description": "API REST et microservices en FastAPI, gestion de 10M+ requêtes/jour"
+      },
+      {
+        "poste": "Développeur Django",
+        "entreprise": "WebFactory",
+        "duree": "2 ans",
+        "description": "Maintenance et évolution d'un back-office Django"
+      },
+      {
+        "poste": "Développeur Python",
+        "entreprise": "StartupML",
+        "duree": "1 an",
+        "description": "Scripts d'ETL et pipelines de données"
+      }
+    ],
+    "formations": [
+      "Master Informatique, INSA Lyon (2017)"
+    ],
+    "anglais": "Technique (B2)"
+  },
+  {
+    "id": "cv_003",
+    "nom": "Sophie Martin",
+    "prenom": "Sophie",
+    "nom_de_famille": "Martin",
+    "email": "sophie.martin@proton.me",
+    "telephone": "06 66 97 15 12",
+    "titre": "Product Owner - 6 ans d'experience",
+    "categorie": "devops",
+    "competences": [
+      {
+        "nom": "Kubernetes",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Docker",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Terraform",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "AWS",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "GitLab CI",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Ansible",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Prometheus",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Linux",
+        "niveau": "expert",
+        "annees": 7
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "DevOps Engineer",
+        "entreprise": "CloudScale",
+        "duree": "3 ans",
+        "description": "Migration vers Kubernetes, automatisation CI/CD avec GitLab"
+      },
+      {
+        "poste": "SysAdmin / DevOps",
+        "entreprise": "InfraPlus",
+        "duree": "2 ans",
+        "description": "Gestion de l'infrastructure on-premise et migration AWS"
+      },
+      {
+        "poste": "Administrateur Système",
+        "entreprise": "HostingCorp",
+        "duree": "2 ans",
+        "description": "Administration Linux, scripts Bash/Ansible"
+      }
+    ],
+    "formations": [
+      "Master Réseaux & Systèmes, Université de Bordeaux (2016)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_004",
+    "nom": "Léa Chen",
+    "prenom": "Léa",
+    "nom_de_famille": "Chen",
+    "email": "léa.chen@proton.me",
+    "telephone": "06 24 71 75 97",
+    "titre": "DevOps Engineer - 3 ans d'experience",
+    "categorie": "design",
+    "competences": [
+      {
+        "nom": "Figma",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Sketch",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Photoshop",
+        "niveau": "avancé",
+        "annees": 6
+      },
+      {
+        "nom": "Illustrator",
+        "niveau": "avancé",
+        "annees": 5
+      },
+      {
+        "nom": "Design System",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Prototypage",
+        "niveau": "expert",
+        "annees": 4
+      },
+      {
+        "nom": "User Research",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "HTML/CSS",
+        "niveau": "intermédiaire",
+        "annees": 3
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Lead Designer",
+        "entreprise": "DesignStudio",
+        "duree": "3 ans",
+        "description": "Création de design systems, conception d'apps mobiles"
+      },
+      {
+        "poste": "UX Designer",
+        "entreprise": "AgencyCreative",
+        "duree": "2 ans",
+        "description": "Recherche utilisateur, wireframes, prototypes Figma"
+      },
+      {
+        "poste": "UI Designer",
+        "entreprise": "WebDesignCorp",
+        "duree": "2 ans",
+        "description": "Design d'interfaces web et mobiles"
+      }
+    ],
+    "formations": [
+      "DSAA Design Numérique, ENSAD Paris (2018)"
+    ],
+    "anglais": "Intermédiaire (B1)"
+  },
+  {
+    "id": "cv_005",
+    "nom": "Thomas Petit",
+    "prenom": "Thomas",
+    "nom_de_famille": "Petit",
+    "email": "thomas.petit@outlook.fr",
+    "telephone": "06 08 65 17 29",
+    "titre": "Developpeur React - 4 ans d'experience",
+    "categorie": "marketing",
+    "competences": [
+      {
+        "nom": "SEO/SEM",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Google Ads",
+        "niveau": "avancé",
+        "annees": 5
+      },
+      {
+        "nom": "Content Marketing",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Analytics",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Social Media",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Email Marketing",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "HubSpot",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Copywriting",
+        "niveau": "avancé",
+        "annees": 5
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Head of Marketing",
+        "entreprise": "ScaleUp",
+        "duree": "2 ans",
+        "description": "Stratégie marketing 360, +200% trafic organique"
+      },
+      {
+        "poste": "Growth Manager",
+        "entreprise": "TechStartup",
+        "duree": "2 ans",
+        "description": "Acquisition, funnel, A/B testing, +150% conversions"
+      },
+      {
+        "poste": "Chargée de Marketing",
+        "entreprise": "AgenceCom",
+        "duree": "2 ans",
+        "description": "Campagnes Facebook/Google Ads, gestion budget 50K€/mois"
+      }
+    ],
+    "formations": [
+      "Master Marketing Digital, ESSEC (2017)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_006",
+    "nom": "Adam Benali",
+    "prenom": "Adam",
+    "nom_de_famille": "Benali",
+    "email": "adam.benali@icloud.com",
+    "telephone": "06 75 05 70 95",
+    "titre": "Développeur Fullstack Junior",
+    "categorie": "fullstack",
+    "competences": [
+      {
+        "nom": "JavaScript",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "React",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Node.js",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Python",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "HTML/CSS",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "MongoDB",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Git",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "Express",
+        "niveau": "débutant",
+        "annees": 1
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Stage Développeur Fullstack",
+        "entreprise": "WebStartup",
+        "duree": "6 mois",
+        "description": "Développement frontend React et backend Node.js"
+      },
+      {
+        "poste": "Projet école - App web",
+        "entreprise": "EPITECH",
+        "duree": "6 mois",
+        "description": "Création d'une app de gestion de tâches en MERN stack"
+      }
+    ],
+    "formations": [
+      "Bachelor Informatique, EPITECH (2024)"
+    ],
+    "anglais": "Technique (B2)"
+  },
+  {
+    "id": "cv_007",
+    "nom": "Manon Fournier",
+    "prenom": "Manon",
+    "nom_de_famille": "Fournier",
+    "email": "manon.fournier@proton.me",
+    "telephone": "06 67 37 15 49",
+    "titre": "Alternant Développeur Backend",
+    "categorie": "backend",
+    "competences": [
+      {
+        "nom": "Python",
+        "niveau": "intermédiaire",
+        "annees": 1
+      },
+      {
+        "nom": "SQL",
+        "niveau": "intermédiaire",
+        "annees": 1
+      },
+      {
+        "nom": "Java",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Git",
+        "niveau": "intermédiaire",
+        "annees": 1
+      },
+      {
+        "nom": "Spring Boot",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Docker",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Linux",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "REST API",
+        "niveau": "intermédiaire",
+        "annees": 1
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Alternance - Backend Developer",
+        "entreprise": "FinTechCorp",
+        "duree": "1 an",
+        "description": "Développement d'API REST en Java Spring Boot"
+      },
+      {
+        "poste": "Stage - Développeur Python",
+        "entreprise": "DataLab",
+        "duree": "3 mois",
+        "description": "Scripts d'automatisation et tests unitaires"
+      }
+    ],
+    "formations": [
+      "Master 1 Informatique, Sorbonne Université (en cours, 2025)"
+    ],
+    "anglais": "Intermédiaire (B1)"
+  },
+  {
+    "id": "cv_008",
+    "nom": "Thomas Girard",
+    "prenom": "Thomas",
+    "nom_de_famille": "Girard",
+    "email": "thomas.girard@gmail.com",
+    "telephone": "06 49 94 99 78",
+    "titre": "Senior Data Engineer",
+    "categorie": "data",
+    "competences": [
+      {
+        "nom": "Python",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Spark",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Airflow",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "SQL",
+        "niveau": "expert",
+        "annees": 7
+      },
+      {
+        "nom": "Kafka",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Snowflake",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "dbt",
+        "niveau": "avancé",
+        "annees": 2
+      },
+      {
+        "nom": "AWS",
+        "niveau": "avancé",
+        "annees": 4
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Senior Data Engineer",
+        "entreprise": "BigDataCorp",
+        "duree": "3 ans",
+        "description": "Architecture de pipelines de données Spark + Airflow, 5TB/jour"
+      },
+      {
+        "poste": "Data Engineer",
+        "entreprise": "AnalyticsCo",
+        "duree": "2 ans",
+        "description": "ETL, data warehouse, modélisation Snowflake"
+      },
+      {
+        "poste": "Data Analyst",
+        "entreprise": "InsightsLab",
+        "duree": "2 ans",
+        "description": "Analyses SQL, dashboards Tableau, reporting"
+      }
+    ],
+    "formations": [
+      "Master Data Science, Télécom Paris (2016)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_009",
+    "nom": "Inès Lefebvre",
+    "prenom": "Inès",
+    "nom_de_famille": "Lefebvre",
+    "email": "inès.lefebvre@yahoo.fr",
+    "telephone": "06 66 28 10 83",
+    "titre": "Product Owner",
+    "categorie": "po",
+    "competences": [
+      {
+        "nom": "Agile/Scrum",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Jira",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Product Management",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "User Stories",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Roadmap",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "KPI/OKR",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Design Thinking",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "Data Analysis",
+        "niveau": "intermédiaire",
+        "annees": 2
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Senior Product Owner",
+        "entreprise": "ProductCorp",
+        "duree": "3 ans",
+        "description": "Gestion de 3 squads, roadmap sur 18 mois, +40% NPS"
+      },
+      {
+        "poste": "Product Owner",
+        "entreprise": "AgileCorp",
+        "duree": "2 ans",
+        "description": "Backlog, user stories, ceremonies Scrum"
+      },
+      {
+        "poste": "Business Analyst",
+        "entreprise": "ConsultingCo",
+        "duree": "2 ans",
+        "description": "Recueil de besoins, specs fonctionnelles, MOA"
+      }
+    ],
+    "formations": [
+      "Master Management de l'Innovation, Mines Paris (2017)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_010",
+    "nom": "Hugo Fontaine",
+    "prenom": "Hugo",
+    "nom_de_famille": "Fontaine",
+    "email": "hugo.fontaine@email.fr",
+    "telephone": "06 76 99 73 67",
+    "titre": "Senior Backend Java Engineer",
+    "categorie": "backend",
+    "competences": [
+      {
+        "nom": "Java",
+        "niveau": "expert",
+        "annees": 8
+      },
+      {
+        "nom": "Spring Boot",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Microservices",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Kafka",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "PostgreSQL",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Docker",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Kubernetes",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "JUnit",
+        "niveau": "expert",
+        "annees": 5
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Staff Engineer",
+        "entreprise": "EnterpriseTech",
+        "duree": "4 ans",
+        "description": "Architecture microservices Java, migration vers Kafka"
+      },
+      {
+        "poste": "Senior Java Developer",
+        "entreprise": "BankSoft",
+        "duree": "3 ans",
+        "description": "Systèmes bancaires haute disponibilité, tests"
+      },
+      {
+        "poste": "Java Developer",
+        "entreprise": "CorpSolutions",
+        "duree": "3 ans",
+        "description": "Développement d'API REST et batchs Java"
+      }
+    ],
+    "formations": [
+      "Master Informatique, Polytech Lyon (2014)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_011",
+    "nom": "Emma Martin",
+    "prenom": "Emma",
+    "nom_de_famille": "Martin",
+    "email": "emma.martin@proton.me",
+    "telephone": "06 90 48 23 54",
+    "titre": "Développeur React Senior",
+    "categorie": "frontend",
+    "competences": [
+      {
+        "nom": "React",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "TypeScript",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "JavaScript",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "HTML/CSS",
+        "niveau": "avancé",
+        "annees": 7
+      },
+      {
+        "nom": "Next.js",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Redux",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Node.js",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "GraphQL",
+        "niveau": "intermédiaire",
+        "annees": 2
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Lead Frontend",
+        "entreprise": "TechCorp",
+        "duree": "3 ans",
+        "description": "Refonte de l'architecture React, mentorat de 3 développeurs"
+      },
+      {
+        "poste": "Développeur React",
+        "entreprise": "StartupXYZ",
+        "duree": "2 ans",
+        "description": "Migration Angular vers React, mise en place de tests Jest"
+      },
+      {
+        "poste": "Développeur Frontend",
+        "entreprise": "WebAgency",
+        "duree": "2 ans",
+        "description": "Développement de sites vitrines et dashboards"
+      }
+    ],
+    "formations": [
+      "Master Informatique, Université Paris-Saclay (2018)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_012",
+    "nom": "Théo Moreau",
+    "prenom": "Théo",
+    "nom_de_famille": "Moreau",
+    "email": "théo.moreau@proton.me",
+    "telephone": "06 88 66 23 17",
+    "titre": "Développeur Python Backend",
+    "categorie": "backend",
+    "competences": [
+      {
+        "nom": "Python",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Django",
+        "niveau": "avancé",
+        "annees": 5
+      },
+      {
+        "nom": "FastAPI",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "PostgreSQL",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Docker",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Redis",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "Celery",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "pytest",
+        "niveau": "avancé",
+        "annees": 4
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Backend Engineer",
+        "entreprise": "DataTech",
+        "duree": "3 ans",
+        "description": "API REST et microservices en FastAPI, gestion de 10M+ requêtes/jour"
+      },
+      {
+        "poste": "Développeur Python",
+        "entreprise": "StartupML",
+        "duree": "1 an",
+        "description": "Scripts d'ETL et pipelines de données"
+      }
+    ],
+    "formations": [
+      "Master Informatique, INSA Lyon (2017)"
+    ],
+    "anglais": "Technique (B2)"
+  },
+  {
+    "id": "cv_013",
+    "nom": "Alice Petit",
+    "prenom": "Alice",
+    "nom_de_famille": "Petit",
+    "email": "alice.petit@outlook.fr",
+    "telephone": "06 58 46 53 08",
+    "titre": "DevOps Engineer",
+    "categorie": "devops",
+    "competences": [
+      {
+        "nom": "Kubernetes",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Docker",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Terraform",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "AWS",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "GitLab CI",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Ansible",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Prometheus",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Linux",
+        "niveau": "expert",
+        "annees": 7
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "SysAdmin / DevOps",
+        "entreprise": "InfraPlus",
+        "duree": "2 ans",
+        "description": "Gestion de l'infrastructure on-premise et migration AWS"
+      },
+      {
+        "poste": "Administrateur Système",
+        "entreprise": "HostingCorp",
+        "duree": "2 ans",
+        "description": "Administration Linux, scripts Bash/Ansible"
+      }
+    ],
+    "formations": [
+      "Master Réseaux & Systèmes, Université de Bordeaux (2016)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_014",
+    "nom": "Thomas Moreau",
+    "prenom": "Thomas",
+    "nom_de_famille": "Moreau",
+    "email": "thomas.moreau@icloud.com",
+    "telephone": "06 05 90 59 28",
+    "titre": "UX/UI Designer",
+    "categorie": "design",
+    "competences": [
+      {
+        "nom": "Figma",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Sketch",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Photoshop",
+        "niveau": "avancé",
+        "annees": 6
+      },
+      {
+        "nom": "Illustrator",
+        "niveau": "avancé",
+        "annees": 5
+      },
+      {
+        "nom": "Design System",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Prototypage",
+        "niveau": "expert",
+        "annees": 4
+      },
+      {
+        "nom": "User Research",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "HTML/CSS",
+        "niveau": "intermédiaire",
+        "annees": 3
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Lead Designer",
+        "entreprise": "DesignStudio",
+        "duree": "3 ans",
+        "description": "Création de design systems, conception d'apps mobiles"
+      },
+      {
+        "poste": "UX Designer",
+        "entreprise": "AgencyCreative",
+        "duree": "2 ans",
+        "description": "Recherche utilisateur, wireframes, prototypes Figma"
+      }
+    ],
+    "formations": [
+      "DSAA Design Numérique, ENSAD Paris (2018)"
+    ],
+    "anglais": "Intermédiaire (B1)"
+  },
+  {
+    "id": "cv_015",
+    "nom": "Julie Rousseau",
+    "prenom": "Julie",
+    "nom_de_famille": "Rousseau",
+    "email": "julie.rousseau@proton.me",
+    "telephone": "06 74 65 60 76",
+    "titre": "Spécialiste Marketing Digital",
+    "categorie": "marketing",
+    "competences": [
+      {
+        "nom": "SEO/SEM",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Google Ads",
+        "niveau": "avancé",
+        "annees": 5
+      },
+      {
+        "nom": "Content Marketing",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Analytics",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Social Media",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Email Marketing",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "HubSpot",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Copywriting",
+        "niveau": "avancé",
+        "annees": 5
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Head of Marketing",
+        "entreprise": "ScaleUp",
+        "duree": "2 ans",
+        "description": "Stratégie marketing 360, +200% trafic organique"
+      },
+      {
+        "poste": "Growth Manager",
+        "entreprise": "TechStartup",
+        "duree": "2 ans",
+        "description": "Acquisition, funnel, A/B testing, +150% conversions"
+      },
+      {
+        "poste": "Chargée de Marketing",
+        "entreprise": "AgenceCom",
+        "duree": "2 ans",
+        "description": "Campagnes Facebook/Google Ads, gestion budget 50K€/mois"
+      }
+    ],
+    "formations": [
+      "Master Marketing Digital, ESSEC (2017)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_016",
+    "nom": "Karim Girard",
+    "prenom": "Karim",
+    "nom_de_famille": "Girard",
+    "email": "karim.girard@icloud.com",
+    "telephone": "06 56 14 88 83",
+    "titre": "Développeur Fullstack Junior",
+    "categorie": "fullstack",
+    "competences": [
+      {
+        "nom": "JavaScript",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "React",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Node.js",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Python",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "HTML/CSS",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "MongoDB",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Git",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "Express",
+        "niveau": "débutant",
+        "annees": 1
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Stage Développeur Fullstack",
+        "entreprise": "WebStartup",
+        "duree": "6 mois",
+        "description": "Développement frontend React et backend Node.js"
+      },
+      {
+        "poste": "Projet école - App web",
+        "entreprise": "EPITECH",
+        "duree": "6 mois",
+        "description": "Création d'une app de gestion de tâches en MERN stack"
+      }
+    ],
+    "formations": [
+      "Bachelor Informatique, EPITECH (2024)"
+    ],
+    "anglais": "Technique (B2)"
+  },
+  {
+    "id": "cv_017",
+    "nom": "Laura Moreau",
+    "prenom": "Laura",
+    "nom_de_famille": "Moreau",
+    "email": "laura.moreau@email.fr",
+    "telephone": "06 12 86 32 39",
+    "titre": "Alternant Développeur Backend",
+    "categorie": "backend",
+    "competences": [
+      {
+        "nom": "Python",
+        "niveau": "intermédiaire",
+        "annees": 1
+      },
+      {
+        "nom": "SQL",
+        "niveau": "intermédiaire",
+        "annees": 1
+      },
+      {
+        "nom": "Java",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Git",
+        "niveau": "intermédiaire",
+        "annees": 1
+      },
+      {
+        "nom": "Spring Boot",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Docker",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Linux",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "REST API",
+        "niveau": "intermédiaire",
+        "annees": 1
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Alternance - Backend Developer",
+        "entreprise": "FinTechCorp",
+        "duree": "1 an",
+        "description": "Développement d'API REST en Java Spring Boot"
+      },
+      {
+        "poste": "Stage - Développeur Python",
+        "entreprise": "DataLab",
+        "duree": "3 mois",
+        "description": "Scripts d'automatisation et tests unitaires"
+      }
+    ],
+    "formations": [
+      "Master 1 Informatique, Sorbonne Université (en cours, 2025)"
+    ],
+    "anglais": "Intermédiaire (B1)"
+  },
+  {
+    "id": "cv_018",
+    "nom": "Hugo Benali",
+    "prenom": "Hugo",
+    "nom_de_famille": "Benali",
+    "email": "hugo.benali@proton.me",
+    "telephone": "06 08 16 97 31",
+    "titre": "Senior Data Engineer",
+    "categorie": "data",
+    "competences": [
+      {
+        "nom": "Python",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Spark",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Airflow",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "SQL",
+        "niveau": "expert",
+        "annees": 7
+      },
+      {
+        "nom": "Kafka",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Snowflake",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "dbt",
+        "niveau": "avancé",
+        "annees": 2
+      },
+      {
+        "nom": "AWS",
+        "niveau": "avancé",
+        "annees": 4
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Senior Data Engineer",
+        "entreprise": "BigDataCorp",
+        "duree": "3 ans",
+        "description": "Architecture de pipelines de données Spark + Airflow, 5TB/jour"
+      },
+      {
+        "poste": "Data Engineer",
+        "entreprise": "AnalyticsCo",
+        "duree": "2 ans",
+        "description": "ETL, data warehouse, modélisation Snowflake"
+      }
+    ],
+    "formations": [
+      "Master Data Science, Télécom Paris (2016)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_019",
+    "nom": "Emma Roux",
+    "prenom": "Emma",
+    "nom_de_famille": "Roux",
+    "email": "emma.roux@gmail.com",
+    "telephone": "06 31 69 97 30",
+    "titre": "Product Owner",
+    "categorie": "po",
+    "competences": [
+      {
+        "nom": "Agile/Scrum",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Jira",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Product Management",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "User Stories",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Roadmap",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "KPI/OKR",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Design Thinking",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "Data Analysis",
+        "niveau": "intermédiaire",
+        "annees": 2
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Senior Product Owner",
+        "entreprise": "ProductCorp",
+        "duree": "3 ans",
+        "description": "Gestion de 3 squads, roadmap sur 18 mois, +40% NPS"
+      },
+      {
+        "poste": "Product Owner",
+        "entreprise": "AgileCorp",
+        "duree": "2 ans",
+        "description": "Backlog, user stories, ceremonies Scrum"
+      },
+      {
+        "poste": "Business Analyst",
+        "entreprise": "ConsultingCo",
+        "duree": "2 ans",
+        "description": "Recueil de besoins, specs fonctionnelles, MOA"
+      }
+    ],
+    "formations": [
+      "Master Management de l'Innovation, Mines Paris (2017)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_020",
+    "nom": "Mehdi Bernard",
+    "prenom": "Mehdi",
+    "nom_de_famille": "Bernard",
+    "email": "mehdi.bernard@icloud.com",
+    "telephone": "06 60 20 89 42",
+    "titre": "Senior Backend Java Engineer",
+    "categorie": "backend",
+    "competences": [
+      {
+        "nom": "Java",
+        "niveau": "expert",
+        "annees": 8
+      },
+      {
+        "nom": "Spring Boot",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Microservices",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Kafka",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "PostgreSQL",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Docker",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Kubernetes",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "JUnit",
+        "niveau": "expert",
+        "annees": 5
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Staff Engineer",
+        "entreprise": "EnterpriseTech",
+        "duree": "4 ans",
+        "description": "Architecture microservices Java, migration vers Kafka"
+      },
+      {
+        "poste": "Senior Java Developer",
+        "entreprise": "BankSoft",
+        "duree": "3 ans",
+        "description": "Systèmes bancaires haute disponibilité, tests"
+      },
+      {
+        "poste": "Java Developer",
+        "entreprise": "CorpSolutions",
+        "duree": "3 ans",
+        "description": "Développement d'API REST et batchs Java"
+      }
+    ],
+    "formations": [
+      "Master Informatique, Polytech Lyon (2014)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_021",
+    "nom": "Alice Müller",
+    "prenom": "Alice",
+    "nom_de_famille": "Müller",
+    "email": "alice.müller@gmail.com",
+    "telephone": "06 58 67 55 53",
+    "titre": "Développeur React Senior",
+    "categorie": "frontend",
+    "competences": [
+      {
+        "nom": "React",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "TypeScript",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "JavaScript",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "HTML/CSS",
+        "niveau": "avancé",
+        "annees": 7
+      },
+      {
+        "nom": "Next.js",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Redux",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Node.js",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "GraphQL",
+        "niveau": "intermédiaire",
+        "annees": 2
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Lead Frontend",
+        "entreprise": "TechCorp",
+        "duree": "3 ans",
+        "description": "Refonte de l'architecture React, mentorat de 3 développeurs"
+      },
+      {
+        "poste": "Développeur React",
+        "entreprise": "StartupXYZ",
+        "duree": "2 ans",
+        "description": "Migration Angular vers React, mise en place de tests Jest"
+      },
+      {
+        "poste": "Développeur Frontend",
+        "entreprise": "WebAgency",
+        "duree": "2 ans",
+        "description": "Développement de sites vitrines et dashboards"
+      }
+    ],
+    "formations": [
+      "Master Informatique, Université Paris-Saclay (2018)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_022",
+    "nom": "Mehdi Dupont",
+    "prenom": "Mehdi",
+    "nom_de_famille": "Dupont",
+    "email": "mehdi.dupont@icloud.com",
+    "telephone": "06 65 96 42 77",
+    "titre": "Développeur Python Backend",
+    "categorie": "backend",
+    "competences": [
+      {
+        "nom": "Python",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Django",
+        "niveau": "avancé",
+        "annees": 5
+      },
+      {
+        "nom": "FastAPI",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "PostgreSQL",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Docker",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Redis",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "Celery",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "pytest",
+        "niveau": "avancé",
+        "annees": 4
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Backend Engineer",
+        "entreprise": "DataTech",
+        "duree": "3 ans",
+        "description": "API REST et microservices en FastAPI, gestion de 10M+ requêtes/jour"
+      },
+      {
+        "poste": "Développeur Django",
+        "entreprise": "WebFactory",
+        "duree": "2 ans",
+        "description": "Maintenance et évolution d'un back-office Django"
+      },
+      {
+        "poste": "Développeur Python",
+        "entreprise": "StartupML",
+        "duree": "1 an",
+        "description": "Scripts d'ETL et pipelines de données"
+      }
+    ],
+    "formations": [
+      "Master Informatique, INSA Lyon (2017)"
+    ],
+    "anglais": "Technique (B2)"
+  },
+  {
+    "id": "cv_023",
+    "nom": "Inès Chen",
+    "prenom": "Inès",
+    "nom_de_famille": "Chen",
+    "email": "inès.chen@gmail.com",
+    "telephone": "06 94 83 82 53",
+    "titre": "DevOps Engineer",
+    "categorie": "devops",
+    "competences": [
+      {
+        "nom": "Kubernetes",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Docker",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Terraform",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "AWS",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "GitLab CI",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Ansible",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Prometheus",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Linux",
+        "niveau": "expert",
+        "annees": 7
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "DevOps Engineer",
+        "entreprise": "CloudScale",
+        "duree": "3 ans",
+        "description": "Migration vers Kubernetes, automatisation CI/CD avec GitLab"
+      },
+      {
+        "poste": "SysAdmin / DevOps",
+        "entreprise": "InfraPlus",
+        "duree": "2 ans",
+        "description": "Gestion de l'infrastructure on-premise et migration AWS"
+      },
+      {
+        "poste": "Administrateur Système",
+        "entreprise": "HostingCorp",
+        "duree": "2 ans",
+        "description": "Administration Linux, scripts Bash/Ansible"
+      }
+    ],
+    "formations": [
+      "Master Réseaux & Systèmes, Université de Bordeaux (2016)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_024",
+    "nom": "Youssef Roux",
+    "prenom": "Youssef",
+    "nom_de_famille": "Roux",
+    "email": "youssef.roux@gmail.com",
+    "telephone": "06 67 57 85 33",
+    "titre": "UX/UI Designer",
+    "categorie": "design",
+    "competences": [
+      {
+        "nom": "Figma",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Sketch",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Photoshop",
+        "niveau": "avancé",
+        "annees": 6
+      },
+      {
+        "nom": "Illustrator",
+        "niveau": "avancé",
+        "annees": 5
+      },
+      {
+        "nom": "Design System",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Prototypage",
+        "niveau": "expert",
+        "annees": 4
+      },
+      {
+        "nom": "User Research",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "HTML/CSS",
+        "niveau": "intermédiaire",
+        "annees": 3
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Lead Designer",
+        "entreprise": "DesignStudio",
+        "duree": "3 ans",
+        "description": "Création de design systems, conception d'apps mobiles"
+      },
+      {
+        "poste": "UX Designer",
+        "entreprise": "AgencyCreative",
+        "duree": "2 ans",
+        "description": "Recherche utilisateur, wireframes, prototypes Figma"
+      },
+      {
+        "poste": "UI Designer",
+        "entreprise": "WebDesignCorp",
+        "duree": "2 ans",
+        "description": "Design d'interfaces web et mobiles"
+      }
+    ],
+    "formations": [
+      "DSAA Design Numérique, ENSAD Paris (2018)"
+    ],
+    "anglais": "Intermédiaire (B1)"
+  },
+  {
+    "id": "cv_025",
+    "nom": "Sophie Roux",
+    "prenom": "Sophie",
+    "nom_de_famille": "Roux",
+    "email": "sophie.roux@outlook.fr",
+    "telephone": "06 18 17 38 66",
+    "titre": "Spécialiste Marketing Digital",
+    "categorie": "marketing",
+    "competences": [
+      {
+        "nom": "SEO/SEM",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Google Ads",
+        "niveau": "avancé",
+        "annees": 5
+      },
+      {
+        "nom": "Content Marketing",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Analytics",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Social Media",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Email Marketing",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "HubSpot",
+        "niveau": "intermédiaire",
+        "annees": 3
+      },
+      {
+        "nom": "Copywriting",
+        "niveau": "avancé",
+        "annees": 5
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Head of Marketing",
+        "entreprise": "ScaleUp",
+        "duree": "2 ans",
+        "description": "Stratégie marketing 360, +200% trafic organique"
+      },
+      {
+        "poste": "Growth Manager",
+        "entreprise": "TechStartup",
+        "duree": "2 ans",
+        "description": "Acquisition, funnel, A/B testing, +150% conversions"
+      }
+    ],
+    "formations": [
+      "Master Marketing Digital, ESSEC (2017)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_026",
+    "nom": "Thomas Chen",
+    "prenom": "Thomas",
+    "nom_de_famille": "Chen",
+    "email": "thomas.chen@outlook.fr",
+    "telephone": "06 30 75 10 87",
+    "titre": "Développeur Fullstack Junior",
+    "categorie": "fullstack",
+    "competences": [
+      {
+        "nom": "JavaScript",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "React",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Node.js",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Python",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "HTML/CSS",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "MongoDB",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Git",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "Express",
+        "niveau": "débutant",
+        "annees": 1
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Stage Développeur Fullstack",
+        "entreprise": "WebStartup",
+        "duree": "6 mois",
+        "description": "Développement frontend React et backend Node.js"
+      },
+      {
+        "poste": "Projet école - App web",
+        "entreprise": "EPITECH",
+        "duree": "6 mois",
+        "description": "Création d'une app de gestion de tâches en MERN stack"
+      }
+    ],
+    "formations": [
+      "Bachelor Informatique, EPITECH (2024)"
+    ],
+    "anglais": "Technique (B2)"
+  },
+  {
+    "id": "cv_027",
+    "nom": "Yasmine Dupont",
+    "prenom": "Yasmine",
+    "nom_de_famille": "Dupont",
+    "email": "yasmine.dupont@email.fr",
+    "telephone": "06 88 50 61 29",
+    "titre": "Alternant Développeur Backend",
+    "categorie": "backend",
+    "competences": [
+      {
+        "nom": "Python",
+        "niveau": "intermédiaire",
+        "annees": 1
+      },
+      {
+        "nom": "SQL",
+        "niveau": "intermédiaire",
+        "annees": 1
+      },
+      {
+        "nom": "Java",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Git",
+        "niveau": "intermédiaire",
+        "annees": 1
+      },
+      {
+        "nom": "Spring Boot",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Docker",
+        "niveau": "débutant",
+        "annees": 1
+      },
+      {
+        "nom": "Linux",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "REST API",
+        "niveau": "intermédiaire",
+        "annees": 1
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Alternance - Backend Developer",
+        "entreprise": "FinTechCorp",
+        "duree": "1 an",
+        "description": "Développement d'API REST en Java Spring Boot"
+      },
+      {
+        "poste": "Stage - Développeur Python",
+        "entreprise": "DataLab",
+        "duree": "3 mois",
+        "description": "Scripts d'automatisation et tests unitaires"
+      }
+    ],
+    "formations": [
+      "Master 1 Informatique, Sorbonne Université (en cours, 2025)"
+    ],
+    "anglais": "Intermédiaire (B1)"
+  },
+  {
+    "id": "cv_028",
+    "nom": "Gabriel Martin",
+    "prenom": "Gabriel",
+    "nom_de_famille": "Martin",
+    "email": "gabriel.martin@yahoo.fr",
+    "telephone": "06 00 19 43 54",
+    "titre": "Senior Data Engineer",
+    "categorie": "data",
+    "competences": [
+      {
+        "nom": "Python",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Spark",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Airflow",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "SQL",
+        "niveau": "expert",
+        "annees": 7
+      },
+      {
+        "nom": "Kafka",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Snowflake",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "dbt",
+        "niveau": "avancé",
+        "annees": 2
+      },
+      {
+        "nom": "AWS",
+        "niveau": "avancé",
+        "annees": 4
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Senior Data Engineer",
+        "entreprise": "BigDataCorp",
+        "duree": "3 ans",
+        "description": "Architecture de pipelines de données Spark + Airflow, 5TB/jour"
+      },
+      {
+        "poste": "Data Engineer",
+        "entreprise": "AnalyticsCo",
+        "duree": "2 ans",
+        "description": "ETL, data warehouse, modélisation Snowflake"
+      },
+      {
+        "poste": "Data Analyst",
+        "entreprise": "InsightsLab",
+        "duree": "2 ans",
+        "description": "Analyses SQL, dashboards Tableau, reporting"
+      }
+    ],
+    "formations": [
+      "Master Data Science, Télécom Paris (2016)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_029",
+    "nom": "Alice Chen",
+    "prenom": "Alice",
+    "nom_de_famille": "Chen",
+    "email": "alice.chen@yahoo.fr",
+    "telephone": "06 25 19 40 92",
+    "titre": "Product Owner",
+    "categorie": "po",
+    "competences": [
+      {
+        "nom": "Agile/Scrum",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Jira",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Product Management",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "User Stories",
+        "niveau": "expert",
+        "annees": 5
+      },
+      {
+        "nom": "Roadmap",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "KPI/OKR",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "Design Thinking",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "Data Analysis",
+        "niveau": "intermédiaire",
+        "annees": 2
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Senior Product Owner",
+        "entreprise": "ProductCorp",
+        "duree": "3 ans",
+        "description": "Gestion de 3 squads, roadmap sur 18 mois, +40% NPS"
+      },
+      {
+        "poste": "Business Analyst",
+        "entreprise": "ConsultingCo",
+        "duree": "2 ans",
+        "description": "Recueil de besoins, specs fonctionnelles, MOA"
+      }
+    ],
+    "formations": [
+      "Master Management de l'Innovation, Mines Paris (2017)"
+    ],
+    "anglais": "Courant (C1)"
+  },
+  {
+    "id": "cv_030",
+    "nom": "Adam Fontaine",
+    "prenom": "Adam",
+    "nom_de_famille": "Fontaine",
+    "email": "adam.fontaine@icloud.com",
+    "telephone": "06 75 52 58 87",
+    "titre": "Senior Backend Java Engineer",
+    "categorie": "backend",
+    "competences": [
+      {
+        "nom": "Java",
+        "niveau": "expert",
+        "annees": 8
+      },
+      {
+        "nom": "Spring Boot",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Microservices",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Kafka",
+        "niveau": "avancé",
+        "annees": 3
+      },
+      {
+        "nom": "PostgreSQL",
+        "niveau": "expert",
+        "annees": 6
+      },
+      {
+        "nom": "Docker",
+        "niveau": "avancé",
+        "annees": 4
+      },
+      {
+        "nom": "Kubernetes",
+        "niveau": "intermédiaire",
+        "annees": 2
+      },
+      {
+        "nom": "JUnit",
+        "niveau": "expert",
+        "annees": 5
+      }
+    ],
+    "experiences": [
+      {
+        "poste": "Staff Engineer",
+        "entreprise": "EnterpriseTech",
+        "duree": "4 ans",
+        "description": "Architecture microservices Java, migration vers Kafka"
+      },
+      {
+        "poste": "Senior Java Developer",
+        "entreprise": "BankSoft",
+        "duree": "3 ans",
+        "description": "Systèmes bancaires haute disponibilité, tests"
+      },
+      {
+        "poste": "Java Developer",
+        "entreprise": "CorpSolutions",
+        "duree": "3 ans",
+        "description": "Développement d'API REST et batchs Java"
+      }
+    ],
+    "formations": [
+      "Master Informatique, Polytech Lyon (2014)"
+    ],
+    "anglais": "Courant (C1)"
+  }
+]

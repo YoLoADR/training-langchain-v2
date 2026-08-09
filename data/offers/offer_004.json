@@ -1,0 +1,20 @@
+{
+  "titre": "UX/UI Designer Senior",
+  "entreprise": "PixelCraft Studio",
+  "description": "Designer senior pour piloter la conception de nos produits digitaux. Vous créez des design systems et menez la recherche utilisateur.",
+  "competences": [
+    "Figma",
+    "Design System",
+    "User Research",
+    "Prototypage",
+    "Photoshop"
+  ],
+  "localisation": "Paris",
+  "salaire_min": 50000,
+  "salaire_max": 70000,
+  "contrat": "CDI",
+  "experience_requise": "4+ ans",
+  "teletravail": "hybride (3j/s)",
+  "categorie": "design",
+  "id": "offer_004"
+}

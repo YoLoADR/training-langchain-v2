@@ -1,0 +1,20 @@
+{
+  "titre": "DevOps Engineer AWS",
+  "entreprise": "CloudNatives",
+  "description": "Nous cherchons un DevOps Engineer pour gérer notre infrastructure AWS, automatiser nos déploiements Kubernetes et améliorer notre observabilité.",
+  "competences": [
+    "Kubernetes",
+    "Docker",
+    "Terraform",
+    "AWS",
+    "GitLab CI"
+  ],
+  "localisation": "Nantes",
+  "salaire_min": 55000,
+  "salaire_max": 75000,
+  "contrat": "CDI",
+  "experience_requise": "4+ ans",
+  "teletravail": "hybride (2j/s)",
+  "categorie": "devops",
+  "id": "offer_003"
+}
