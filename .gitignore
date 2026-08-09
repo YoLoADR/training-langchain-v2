@@ -58,4 +58,7 @@ data/chroma_db/
 htmlcov/
 
 # Jupyter
-.ipynb_checkpoints/.opencode-edits.log
+.ipynb_checkpoints/
+
+# opencode
+.opencode-edits.log.opencode-edits.log
