@@ -1,0 +1,16 @@
+--- a/hirekit/agent/tools.py
++++ b/hirekit/agent/tools.py
+@@ -152,6 +152,7 @@
+     Returns:
+         Résultat de l'exécution (stdout) ou message d'erreur.
+     """
++    # Bug: pas de try/except — l'exception remonte et crash l'agent
+     import io
+     from contextlib import redirect_stdout
+
+@@ -168,6 +169,5 @@
+         else:
+             return "Code exécuté avec succès (aucune sortie)."
+
+-    except Exception as e:
+-        return f"Erreur d'exécution: {type(e).__name__}: {e}"

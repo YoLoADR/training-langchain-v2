@@ -1,0 +1,10 @@
+--- a/hirekit/agent/tools.py
++++ b/hirekit/agent/tools.py
+@@ -32,7 +32,7 @@
+ # ─── Outil 1 : search_cvs (RAG) ─────────────────────────────────────────────
+
+
+-@tool("search_cvs")
++@tool
+ def search_cvs_tool(query: str) -> str:
+     """AT04 — recherche de candidats dans la base de CVs (RAG)."""

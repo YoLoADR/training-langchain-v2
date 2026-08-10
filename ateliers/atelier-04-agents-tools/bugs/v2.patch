@@ -1,0 +1,11 @@
+--- a/hirekit/agent/react_agent.py
++++ b/hirekit/agent/react_agent.py
+@@ -91,7 +91,7 @@
+     executor = AgentExecutor(
+         agent=agent,
+         tools=tools,
+-        max_iterations=max_iterations,
++        max_iterations=1,
+         verbose=verbose,
+         handle_parsing_errors=True,
+         return_intermediate_steps=True,
