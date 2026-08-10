@@ -1,0 +1,12 @@
+# Bug v2 — AGENTS.md manquant (règles globales non injectées)
+#
+# Le bug: le chemin vers AGENTS.md est incorrect, donc les règles globales
+# ne sont pas injectées dans le systemPrompt.
+
+--- a/hirekit/deep_agent/recruiter_agent.py
++++ b/hirekit/deep_agent/recruiter_agent.py
+@@ -24,7 +24,7 @@ AGENT_DIR = Path(__file__).resolve().parent.parent.parent / ".agent"
+
+-agents_md_path = AGENT_DIR / "memory" / "recruiter" / "AGENTS.md"
++agents_md_path = AGENT_DIR / "memory" / "AGENTS.md"
+ AGENTS_MD = agents_md_path.read_text(encoding="utf-8") if agents_md_path.exists() else ""

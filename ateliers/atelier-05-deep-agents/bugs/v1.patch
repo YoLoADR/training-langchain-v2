@@ -1,0 +1,20 @@
+# Bug v1 — Skills inversés (qualification au lieu de first-contact)
+#
+# Le bug: read_skill_for_context() retourne phase-qualification quand qual_count=0
+# au lieu de phase-first-contact.
+# L'élève doit inverser la condition pour que qual_count=0 → phase-first-contact.
+
+--- a/hirekit/deep_agent/middleware.py
++++ b/hirekit/deep_agent/middleware.py
+@@ -70,9 +70,9 @@ def read_skill_for_context(ctx: RecruitmentContext) -> str:
+
+     if ctx.is_closing:
+         parts.append(_read_skill("phase-closing"))
+-    elif ctx.qual_count >= 6:
++    elif ctx.qual_count >= 0:
+         parts.append(_read_skill("phase-reformulation"))
+-    elif ctx.qual_count > 0:
++    elif ctx.qual_count >= 6:
+         parts.append(_read_skill("phase-qualification"))
+     else:
+         parts.append(_read_skill("phase-first-contact"))

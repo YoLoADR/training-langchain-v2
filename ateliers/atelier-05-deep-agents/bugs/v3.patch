@@ -1,0 +1,17 @@
+# Bug v3 — build_context_prompt ne gère pas l'opt-out (refusal)
+#
+# Le bug: la condition `if ctx.refusal` est supprimée, donc l'opt-out
+# n'est plus géré en priorité absolue.
+
+--- a/hirekit/deep_agent/middleware.py
++++ b/hirekit/deep_agent/middleware.py
+@@ -102,9 +102,6 @@ def build_context_prompt(ctx: RecruitmentContext) -> str:
+     parts: list[str] = []
+
+-    if ctx.refusal:
+-        parts.append("## OPT-OUT")
+-        parts.append("Le candidat a demandé d'arrêter le contact. Accepter avec respect. Ne pas insister.")
+-        parts.append("")
+-        return "\n".join(parts)
+-
+     if ctx.memory_prompt:
