@@ -1,0 +1,14 @@
+--- a/hirekit/rag/vectorstore_faiss.py
++++ b/hirekit/rag/vectorstore_faiss.py
+@@ -120,7 +120,7 @@
+ def search_cvs(
+     query: str,
+     vectorstore: "FAISS | None" = None,
+-    k: int = 4,
++    k: int = 4,
+ ) -> list[Document]:
+     """AT03 — recherche de similarité dans les CVs via FAISS."""
+-    if vectorstore is None:
+-        vectorstore = load_faiss_index()
++    # Bug: ne charge pas l'index, lève FileNotFoundError si pas pré-construit
++    return vectorstore.similarity_search(query, k=k)

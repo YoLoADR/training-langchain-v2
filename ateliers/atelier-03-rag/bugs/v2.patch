@@ -1,0 +1,10 @@
+--- a/hirekit/rag/retriever.py
++++ b/hirekit/rag/retriever.py
+@@ -27,7 +27,7 @@
+ def get_cv_retriever(
+     search_type: str = "mmr",
+-    k: int = 4,
++    k: int = 0,
+     fetch_k: int = 20,
+     lambda_mult: float = 0.5,
+ ) -> BaseRetriever:

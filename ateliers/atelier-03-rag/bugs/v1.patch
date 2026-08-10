@@ -1,0 +1,10 @@
+--- a/hirekit/rag/chunking.py
++++ b/hirekit/rag/chunking.py
+@@ -35,7 +35,7 @@
+     splitter = CharacterTextSplitter(
+         chunk_size=chunk_size,
+         chunk_overlap=chunk_overlap,
+-        separator="\n",
++        separator="\n\n",
+     )
+     return splitter.split_documents(documents)
