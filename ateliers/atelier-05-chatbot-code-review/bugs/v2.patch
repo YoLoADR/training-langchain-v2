@@ -1,0 +1,9 @@
+--- a/hirekit/ui/code_reviewer.py
++++ b/hirekit/ui/code_reviewer.py
+@@ -33,7 +33,7 @@
+     loader = GenericLoader.from_filesystem(
+         repo_path,
+-        glob="**/*.py",
++        glob="*.txt",
+         parser=LanguageParser(parser_threshold=50),
+     )

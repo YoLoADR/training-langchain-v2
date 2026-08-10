@@ -1,0 +1,9 @@
+--- a/hirekit/ui/code_reviewer.py
++++ b/hirekit/ui/code_reviewer.py
+@@ -65,7 +65,7 @@
+     splitter = RecursiveCharacterTextSplitter(
+         chunk_size=chunk_size,
+         chunk_overlap=chunk_overlap,
+-        separators=["\nclass ", "\ndef ", "\n\n", "\n", " ", ""],
++        separators=["\n\n", "\n", " ", ""],
+     )

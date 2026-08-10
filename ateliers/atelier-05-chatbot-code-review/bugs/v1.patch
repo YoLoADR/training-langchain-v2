@@ -1,0 +1,7 @@
+--- a/hirekit/ui/telegram_bot.py
++++ b/hirekit/ui/telegram_bot.py
+@@ -40,7 +40,7 @@
+     return text
+-    if len(text) <= max_length:
++    if len(text) <= 10000:
+         return text
