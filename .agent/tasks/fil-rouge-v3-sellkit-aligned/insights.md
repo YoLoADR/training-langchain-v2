@@ -78,7 +78,28 @@
 - `tests/e2e/test_step5_full_pipeline.py` : 3 scénarios paramétrés (13 étapes), stage transitions, CRM pipeline new→closed_won
 - `tests/e2e/test_telegram_screening.py` : screening complet 0→6 champs, objection detection 8 types, closing detection 5 types, CRM pipeline screening→closed_won
 
-## Architecture finale (miroir sellkit)
+## 2026-08-10 — Correction alignement énoncés/code
+
+### Écarts trouvés et corrigés (commit c7372c9)
+
+1. **hirekit/eval/metrics.py** : stubs `NotImplementedError` → implémenté `compute_recall_at_k()`,
+   `compute_mrr()`, `compute_cost()`, `evaluate_qa_dataset()` avec pricing par modèle
+2. **hirekit/eval/tracing.py** : stub `NotImplementedError` → implémenté `get_langsmith_callback()`,
+   `is_tracing_enabled()`, `enable_tracing()`, `get_run_tags()`
+3. **hirekit/ui/telegram_bot.py** : ancien code Cuba (commandes /search, /match) → remplacé par
+   le flux sellkit complet (objection→closing→memory→CRM→Deep Agent→reply) avec `handle_message()`
+4. **hirekit/ui/app.py** : ajouté page "Pipeline CRM" kanban (colonnes par stage, stats, messages récents)
+5. **atelier-06-eval-benchmark-deploy/** : dossier doublon supprimé (remplacé par atelier-07-eval-deploy)
+6. **.gitignore** : ajouté .playwright-mcp/, .serena/, *.png, .opencode-edits.log
+
+### Vérification finale
+
+- 0 stub `NotImplementedError` dans hirekit/ (vérifié avec rg)
+- Tous les tests (unit, integration, e2e) importent depuis les bons modules qui existent
+- AT01-AT07 : chaque GUIDE-ELEVE référence des modules qui existent et sont implémentés
+- AT05 Deep Agents : GUIDE-ELEVE référence hirekit/deep_agent/, .agent/ — tous présents
+- AT06 Chatbots+CRM : GUIDE-ELEVE référence hirekit/ui/, hirekit/crm/, hirekit/telemetry/, hirekit/pipeline/ — tous présents et implémentés
+- AT07 Eval+Deploy : GUIDE-ELEVE référence hirekit/eval/ — implémenté (plus de stubs)
 
 ```
 hirekit/
