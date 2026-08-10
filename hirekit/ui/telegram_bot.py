@@ -1,68 +1,213 @@
-"""Bot Telegram simulé — interface chat pour recruteurs mobiles.
+"""Bot Telegram — handler complet inspiré de sellkit/src/telegram/handler.ts.
 
-AT05 — UX Chatbot : bot Telegram (simulé en local, vrai bot en bonus).
+AT06 — Chatbots + Telegram + CRM
 
-Le bot simulé permet de tester le flux Telegram sans configuration API.
-Il lit les messages depuis stdin et répond via l'agent hirekit.
+Flux à chaque message entrant (inspiré sellkit/src/telegram/handler.ts:45-226):
+  1. Détection d'objection (LLM → fallback keyword)
+  2. Détection de closing (LLM → fallback keyword → stage CRM)
+  3. Extraction mémoire (LLM → 6 champs → merge → stockage DB)
+  4. CRM: get_or_create, update_stage, add_message
+  5. Deep Agent (beforeModel injecte SKILL.md + contexte)
+  6. Reply + log structuré
+
+Le bot simulé permet de tester le flux sans configuration API Telegram.
 """
 
 from __future__ import annotations
 
+import asyncio
 import sys
 from typing import Any
 
+from hirekit.crm.store import CrmStore
 
-# ─── Commandes supportées par le bot ────────────────────────────────────────
+_store: CrmStore | None = None
+
+
+def _crm() -> CrmStore:
+    global _store
+    if _store is None:
+        _store = CrmStore()
+    return _store
+
+
+from hirekit.pipeline.objections import detect_sync as detect_objection
+from hirekit.pipeline.closing import detect_closing_sync
+from hirekit.pipeline.memory import (
+    extract_memory_sync,
+    merge_memory,
+    parse_memory,
+    serialize_memory,
+    count_qualification_fields,
+    next_missing_field,
+    format_memory_for_prompt,
+)
+from hirekit.pipeline.qualification import FIELD_QUESTIONS, CLOSING_STAGES
+from hirekit.telemetry import log
+from hirekit.deep_agent.middleware import RecruitmentContext
 
 BOT_COMMANDS = {
-    "/start": "Affiche le message de bienvenue et la liste des commandes.",
+    "/start": "Affiche le message de bienvenue.",
     "/help": "Affiche l'aide et les commandes disponibles.",
-    "/search <query>": "Recherche des candidats dans la base de CVs.",
-    "/match <cv> <offer>": "Évalue la correspondance entre un CV et une offre.",
-    "/web <query>": "Recherche web (réputation, technologie).",
-    "/code <question>": "Pose une question sur le code du repo.",
+    "/status": "Affiche le pipeline CRM (stats).",
+    "/candidates": "Liste tous les candidats.",
     "/quit": "Quitte le bot simulé.",
 }
 
 WELCOME_MESSAGE = (
-    "🤖 HireKit Bot — Assistant recruteur\n\n"
-    "Je peux t'aider à :\n"
-    "  🔍 Rechercher des candidats (/search)\n"
-    "  📋 Matcher un CV avec une offre (/match)\n"
-    "  🌐 Vérifier la réputation en ligne (/web)\n"
-    "  💻 Analyser du code (/code)\n\n"
-    "Tape /help pour voir toutes les commandes."
+    "🤖 HireKit Bot — Recruteur IA\n\n"
+    "Je filtre les candidats via des conversations de screening.\n"
+    "Je mets à jour le CRM automatiquement.\n\n"
+    "Commandes:\n"
+    "  /status — Pipeline CRM\n"
+    "  /candidates — Liste des candidats\n"
+    "  /help — Aide\n"
+    "  /quit — Quitter"
 )
 
 
-def format_response(text: str, max_length: int = 4096) -> str:
-    """Formate une réponse pour Telegram (limite 4096 caractères par message).
+async def handle_message(text: str, phone: str, first_name: str | None = None) -> str:
+    """AT06 — handler complet: objection→closing→memory→CRM→agent→reply.
+
+    Inspiré de sellkit/src/telegram/handler.ts:48-223.
 
     Args:
-        text: texte à formater.
-        max_length: limite de caractères Telegram (défaut: 4096).
+        text: message entrant du candidat.
+        phone: identifiant du candidat (clé CRM).
+        first_name: prénom du candidat (optionnel).
 
     Returns:
-        Texte tronqué si nécessaire.
+        La réponse à envoyer au candidat.
     """
-    if len(text) <= max_length:
-        return text
-    return text[:max_length - 20] + "\n\n[...tronqué]"
+    if text.startswith("/"):
+        return process_command(text[1:].split(" ", 1)[0])
+
+    # ── 1. Détection d'objection ──
+    log.msg_in(first_name or phone, phone, text)
+    detection = detect_objection(text)
+    if detection["objection"]:
+        log.objection(
+            detection["objection"].key,
+            detection["source"],
+            detection["objection"].tactic,
+        )
+    if detection["refusal"]:
+        log.refusal(detection["source"])
+
+    # ── 2. Détection de closing ──
+    closing = detect_closing_sync(text)
+    if closing.type != "none":
+        log.closing(closing.type, closing.source, closing.target_stage, closing.should_send_link)
+
+    # ── 3. Extraction mémoire ──
+    new_info = extract_memory_sync(text)
+    existing_json = _crm().get_qual_json(phone)
+    existing_memory = parse_memory(existing_json)
+    merged_memory = merge_memory(existing_memory, new_info)
+    qual_count = count_qualification_fields(merged_memory)
+
+    if qual_count > 0:
+        _crm().set_qual_json(phone, serialize_memory(merged_memory))
+    if new_info:
+        log.memory(new_info)
+
+    # ── 4. CRM: register + update ──
+    _crm().get_or_create(phone, {"first_name": first_name})
+    _crm().add_message(
+        phone, "in", text, detection["objection"].key if detection["objection"] else None
+    )
+
+    current_candidate = _crm().get(phone)
+    current_stage = current_candidate.stage if current_candidate else "new"
+
+    # Guard: ignore job_interest/commitment si pas fully qualified
+    if qual_count < 6 and closing.type in ("job_interest", "commitment_signal"):
+        log.closing_ignored(closing.type, qual_count)
+        closing.type = "none"
+        closing.target_stage = None
+        closing.should_send_link = False
+
+    # Stage update
+    if closing.target_stage:
+        _crm().update_stage(phone, closing.target_stage)
+        log.stage_update(phone, closing.target_stage)
+
+    # Conversion link
+    link_appended = False
+    if closing.should_send_link:
+        existing_link = _crm().get_conversion_link(phone)
+        if not existing_link:
+            link = _crm().set_conversion_link(phone)
+            log.conversion_link(phone, link)
+            link_appended = True
+        else:
+            log.conversion_link(phone, None)
+
+    # ── 5. Deep Agent ──
+    history = _crm().get_messages(phone)
+    memory_prompt = format_memory_for_prompt(merged_memory)
+    next_field = next_missing_field(merged_memory)
+    candidate = _crm().get(phone)
+    stage = candidate.stage if candidate else "new"
+
+    from langchain_core.messages import HumanMessage, AIMessage
+
+    messages = [
+        HumanMessage(m.text) if m.direction == "in" else AIMessage(m.text) for m in history[-20:]
+    ]
+
+    recruitment_ctx = RecruitmentContext(
+        qual_count=qual_count,
+        stage=stage,
+        memory_prompt=memory_prompt,
+        next_field=next_field,
+        objection_key=detection["objection"].key if detection["objection"] else None,
+        objection_tactic=detection["objection"].tactic if detection["objection"] else None,
+        link_being_sent=link_appended,
+        link_already_sent=not link_appended and _crm().get_conversion_link(phone) is not None,
+        is_closing=stage in CLOSING_STAGES and qual_count >= 6,
+        show_test_and_link=stage in CLOSING_STAGES or qual_count >= 6,
+        refusal=detection["refusal"],
+    )
+
+    log.llm_calling("deep_agent", phone)
+    reply = ""
+    try:
+        from hirekit.deep_agent.recruiter_agent import run_deep_turn
+
+        reply = run_deep_turn(phone, messages, recruitment_ctx)
+
+        if link_appended:
+            link = _crm().get_conversion_link(phone)
+            if link:
+                reply = f"{reply}\n\n📋 Voici les fiches de poste :\n🔗 {link}"
+
+        _crm().add_message(phone, "out", reply)
+
+        current_cand = _crm().get(phone)
+        if current_cand and current_cand.stage == "new":
+            _crm().update_stage(phone, "contacted")
+
+        if detection["refusal"]:
+            if current_cand and current_cand.stage != "closed_lost":
+                _crm().update_stage(phone, "closed_lost")
+
+        log.msg_out(first_name or phone, reply)
+    except Exception as err:
+        log.llm_error(phone, err)
+        fallback_question = FIELD_QUESTIONS.get(next_field) if next_field else None
+        reply = (
+            f"Désolé, petit souci technique. {fallback_question}"
+            if fallback_question
+            else "Désolé, j'ai eu un problème technique. Pouvez-vous reformuler ?"
+        )
+        _crm().add_message(phone, "out", reply)
+
+    return reply
 
 
-def process_command(command: str, args: str = "") -> str:
-    """AT05 — traite une commande du bot et retourne la réponse.
-
-    Cette fonction est testable sans LLM ni API externe. Elle route
-    les commandes vers les bons outils ou messages.
-
-    Args:
-        command: commande sans le slash (ex: "search", "help", "start").
-        args: arguments de la commande (ex: "React Python" pour "search").
-
-    Returns:
-        Réponse formatée pour Telegram.
-    """
+def process_command(command: str) -> str:
+    """Traite une commande admin (/status, /candidates, /help)."""
     command = command.lower().strip()
 
     if command == "start":
@@ -74,76 +219,51 @@ def process_command(command: str, args: str = "") -> str:
             lines.append(f"  {cmd} — {desc}")
         return "\n".join(lines)
 
-    if command == "search":
-        if not args:
-            return "Usage: /search <requête>\nExemple: /search qui a de l'expérience en React ?"
-        # Tenter d'utiliser le tool search_cvs
-        try:
-            from hirekit.agent.tools import search_cvs_tool
-            result = search_cvs_tool.invoke({"query": args})
-            return format_response(result)
-        except Exception as e:
-            return f"Erreur lors de la recherche: {e}"
+    if command == "status":
+        stats = _crm().stats()
+        lines = [
+            "📊 Pipeline CRM:\n",
+            f"  Total candidats: {stats['total_candidates']}",
+            f"  Total messages: {stats['total_messages']}",
+            "\n  Par stage:",
+        ]
+        for stage, count in stats.get("by_stage", {}).items():
+            lines.append(f"    {stage}: {count}")
+        return "\n".join(lines)
 
-    if command == "web":
-        if not args:
-            return "Usage: /web <requête>\nExemple: /web Marie Dubois développeur"
-        try:
-            from hirekit.agent.tools import web_search_tool
-            result = web_search_tool.invoke({"query": args})
-            return format_response(result)
-        except Exception as e:
-            return f"Erreur lors de la recherche web: {e}"
-
-    if command == "match":
-        if not args:
-            return ("Usage: /match <CV> | <offre>\n"
-                    "Exemple: /match Marie Dubois React 4 ans | Dev React Senior")
-        # Séparer le CV et l'offre
-        if "|" in args:
-            cv_text, offer_text = args.split("|", 1)
-            try:
-                from hirekit.agent.tools import match_candidate_tool
-                result = match_candidate_tool.invoke({
-                    "cv_text": cv_text.strip(),
-                    "offer_text": offer_text.strip(),
-                })
-                return format_response(result)
-            except Exception as e:
-                return f"Erreur lors du matching: {e}"
-        return "Format invalide. Utilisez: /match <CV> | <offre>"
-
-    if command == "code":
-        if not args:
-            return "Usage: /code <question>\nExemple: /code Où est gérée l'authentification ?"
-        try:
-            from hirekit.ui.code_reviewer import index_code_repo, ask_code_question
-            retriever = index_code_repo("data/code_repo")
-            result = ask_code_question(args, retriever)
-            return format_response(result)
-        except Exception as e:
-            return f"Erreur lors de l'analyse du code: {e}"
+    if command == "candidates":
+        candidates = _crm().get_all()
+        if not candidates:
+            return "Aucun candidat dans le CRM."
+        lines = ["📋 Candidats:\n"]
+        for c in candidates[:20]:
+            lines.append(
+                f"  {c.first_name or c.phone} — stage: {c.stage} — msgs: {c.message_count}"
+            )
+        return "\n".join(lines)
 
     if command == "quit":
         return "Au revoir ! 👋"
 
-    return f"Commande inconnue: /{command}\nTape /help pour voir les commandes disponibles."
+    return f"Commande inconnue: /{command}\nTape /help pour voir les commandes."
 
 
 def start_telegram_bot_simulated() -> None:
-    """AT05 — démarre le bot Telegram en mode simulé (mock local).
+    """AT06 — démarre le bot Telegram en mode simulé (mock local).
 
-    Le bot simulé lit les messages depuis stdin et répond via process_command().
-    Permet de tester le flux Telegram sans configuration API.
-
-    Tapez /quit pour arrêter.
+    Le bot simulé lit les messages depuis stdin et les passe à handle_message().
+    Chaque message est traité via le flux complet: objection→closing→memory→CRM→agent→reply.
     """
     print(WELCOME_MESSAGE)
-    print("\n--- Mode simulé (tapez vos commandes, /quit pour arrêter) ---\n")
+    print("\n--- Mode simulé (tapez vos messages, /quit pour arrêter) ---\n")
+    print("Vous jouez le rôle d'un candidat. Le bot va vous qualifier.\n")
+
+    phone = "+33600000000"
+    first_name = "Candidat Test"
 
     while True:
         try:
-            user_input = input("👤 You > ").strip()
+            user_input = input("👤 Candidat > ").strip()
         except (EOFError, KeyboardInterrupt):
             print("\n\nAu revoir ! 👋")
             break
@@ -151,26 +271,24 @@ def start_telegram_bot_simulated() -> None:
         if not user_input:
             continue
 
-        # Parser la commande
         if user_input.startswith("/"):
-            parts = user_input[1:].split(" ", 1)
-            command = parts[0]
-            args = parts[1] if len(parts) > 1 else ""
-        else:
-            # Message libre → traiter comme une recherche
-            command = "search"
-            args = user_input
+            cmd = user_input[1:].split(" ", 1)[0]
+            if cmd.lower() == "quit":
+                print("🤖 Bot > Au revoir ! 👋")
+                break
+            response = process_command(cmd)
+            print(f"🤖 Bot > {response}\n")
+            continue
 
-        if command.lower() == "quit":
-            print("🤖 Bot > Au revoir ! 👋")
-            break
-
-        response = process_command(command, args)
-        print(f"🤖 Bot > {response}\n")
+        try:
+            response = asyncio.run(handle_message(user_input, phone, first_name))
+            print(f"🤖 Bot > {response}\n")
+        except Exception as e:
+            print(f"🤖 Bot > ❌ Erreur: {e}\n")
 
 
 def start_telegram_bot_real() -> None:
-    """AT05 (Bonus) — démarre le vrai bot Telegram avec python-telegram-bot.
+    """AT06 (Bonus) — démarre le vrai bot Telegram avec python-telegram-bot.
 
     Nécessite TELEGRAM_BOT_TOKEN dans .env.
     """
@@ -179,7 +297,6 @@ def start_telegram_bot_real() -> None:
     token = os.getenv("TELEGRAM_BOT_TOKEN")
     if not token:
         print("❌ TELEGRAM_BOT_TOKEN non trouvé dans .env")
-        print("   Pour utiliser le bot simulé: start_telegram_bot_simulated()")
         return
 
     try:
@@ -192,31 +309,39 @@ def start_telegram_bot_real() -> None:
             filters,
         )
     except ImportError:
-        print("❌ python-telegram-bot non installé. Lancez: pip install python-telegram-bot")
+        print("❌ python-telegram-bot non installé: pip install python-telegram-bot")
         return
 
     async def handle_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(WELCOME_MESSAGE)
 
     async def handle_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
-        response = process_command("help")
-        await update.message.reply_text(response)
+        await update.message.reply_text(process_command("help"))
 
-    async def handle_search(update: Update, context: ContextTypes.DEFAULT_TYPE):
-        args = " ".join(context.args) if context.args else ""
-        response = process_command("search", args)
-        await update.message.reply_text(response)
+    async def handle_status(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        await update.message.reply_text(process_command("status"))
 
-    async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-        # Message libre → recherche
-        response = process_command("search", update.message.text)
-        await update.message.reply_text(response)
+    async def handle_message_telegram(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        sender = update.message.from_user
+        phone = f"+{sender.id}"
+        first_name = sender.first_name
+        text = update.message.text
+
+        if not text:
+            return
+
+        try:
+            reply = await handle_message(text, phone, first_name)
+            if reply and reply.strip():
+                await update.message.reply_text(reply[:4096])
+        except Exception as e:
+            await update.message.reply_text(f"Erreur: {e}")
 
     app = ApplicationBuilder().token(token).build()
     app.add_handler(CommandHandler("start", handle_start))
     app.add_handler(CommandHandler("help", handle_help))
-    app.add_handler(CommandHandler("search", handle_search))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    app.add_handler(CommandHandler("status", handle_status))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message_telegram))
 
-    print("🤖 Bot Telegram démarré. Ctrl+C pour arrêter.")
+    print("🤖 Bot Telegram démarré (flux sellkit: objection→closing→memory→CRM→agent→reply)")
     app.run_polling()

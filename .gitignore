@@ -62,3 +62,7 @@ htmlcov/
 
 # opencode
 .opencode-edits.log.opencode-edits.log
+.playwright-mcp/
+.serena/
+*.png
+.opencode-edits.log

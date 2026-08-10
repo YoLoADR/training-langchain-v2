@@ -1,11 +1,13 @@
 """Streamlit UI — interface chat multi-pages.
 
-AT05 — UX Chatbot : recréer une expérience de type ChatGPT.
+AT06 — Chatbots + Telegram + CRM
 
-L'application Streamlit a 3 pages :
+L'application Streamlit a 5 pages :
 1. Chat — interface de chat avec l'agent hirekit
 2. Dashboard Matching — visualisation des scores de matching
 3. Bibliothèque CVs — liste et recherche de CVs
+4. Pipeline CRM — kanban des candidats par stage (inspiré sellkit)
+5. Multimodal — transcription vocale (mock) + TTS (mock)
 
 Lancez avec : streamlit run hirekit/ui/app.py
 """
@@ -28,7 +30,10 @@ def render_chat_page() -> None:
     # Initialiser l'historique de chat
     if "chat_messages" not in st.session_state:
         st.session_state.chat_messages = [
-            {"role": "assistant", "content": "Bonjour ! Je suis HireKit. Comment puis-je vous aider ?"}
+            {
+                "role": "assistant",
+                "content": "Bonjour ! Je suis HireKit. Comment puis-je vous aider ?",
+            }
         ]
 
     # Afficher l'historique
@@ -63,11 +68,13 @@ def _process_chat_message(message: str) -> str:
         command = parts[0]
         args = parts[1] if len(parts) > 1 else ""
         from hirekit.ui.telegram_bot import process_command
+
         return process_command(command, args)
 
     # Message libre → recherche de candidats
     try:
         from hirekit.agent.tools import search_cvs_tool
+
         result = search_cvs_tool.invoke({"query": message})
         return result
     except Exception:
@@ -100,6 +107,7 @@ def render_matching_dashboard() -> None:
         with st.spinner("Évaluation..."):
             try:
                 from hirekit.services.matching import get_matching_chain
+
                 chain = get_matching_chain()
                 result = chain.invoke({"cv": cv_text, "offer": offer_text})
 
@@ -138,12 +146,15 @@ def render_cv_library() -> None:
     st.markdown(f"{30} CVs disponibles")
 
     # Recherche
-    search_query = st.text_input("🔍 Rechercher un candidat...", placeholder="React, Python, DevOps...")
+    search_query = st.text_input(
+        "🔍 Rechercher un candidat...", placeholder="React, Python, DevOps..."
+    )
 
     if search_query:
         with st.spinner("Recherche..."):
             try:
                 from hirekit.rag.vectorstore_faiss import search_cvs
+
                 results = search_cvs(search_query, k=5)
                 for i, doc in enumerate(results, 1):
                     filename = doc.metadata.get("filename", "unknown")
@@ -166,10 +177,84 @@ def render_cv_library() -> None:
                     st.write(f"**Email:** {cv['email']}")
                     st.write(f"**Catégorie:** {cv['categorie']}")
                     st.write(f"**Anglais:** {cv['anglais']}")
-                    skills = [f"{s['nom']} ({s['niveau']}, {s['annees']} ans)" for s in cv["competences"]]
+                    skills = [
+                        f"{s['nom']} ({s['niveau']}, {s['annees']} ans)" for s in cv["competences"]
+                    ]
                     st.write(f"**Compétences:** {', '.join(skills)}")
     except Exception:
         st.info("Données CVs non disponibles.")
+
+
+def render_crm_pipeline() -> None:
+    """AT06 — page Pipeline CRM : kanban des candidats par stage.
+
+    Inspiré de sellkit/src/web/server.ts (dashboard CRM).
+    Affiche les candidats groupés par stage dans des colonnes kanban.
+    """
+    import streamlit as st
+
+    st.title("📊 Pipeline CRM")
+    st.markdown("Pipeline de recrutement — candidats par stage")
+
+    try:
+        from hirekit.crm.store import CrmStore
+        from hirekit.crm.types import STAGES, STAGE_LABELS
+
+        store = CrmStore()
+        stats = store.stats()
+        candidates = store.get_all()
+
+        # Stats globales
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Total candidats", stats["total_candidates"])
+        col2.metric("Total messages", stats["total_messages"])
+        col3.metric(
+            "Conversion rate",
+            f"{stats['by_stage'].get('closed_won', 0) / max(stats['total_candidates'], 1):.0%}",
+        )
+
+        st.divider()
+
+        # Kanban par stage
+        st.subheader("📋 Kanban par stage")
+        cols = st.columns(len(STAGES))
+        for i, stage in enumerate(STAGES):
+            with cols[i]:
+                stage_candidates = [c for c in candidates if c.stage == stage]
+                st.markdown(f"**{STAGE_LABELS[stage]}** ({len(stage_candidates)})")
+                for c in stage_candidates:
+                    with st.expander(f"{c.first_name or c.phone[:8]}"):
+                        st.write(f"**Stage:** {c.stage}")
+                        st.write(f"**Messages:** {c.message_count}")
+                        st.write(
+                            f"**Dernier message:** {c.last_message[:80] if c.last_message else '—'}"
+                        )
+                        if c.conversion_link:
+                            st.write(f"**Lien:** {c.conversion_link[:50]}...")
+                        if c.qual_json:
+                            import json
+
+                            try:
+                                qual = json.loads(c.qual_json)
+                                st.write("**Qualification:**")
+                                for k, v in qual.items():
+                                    if v:
+                                        st.write(f"  - {k}: {v}")
+                            except json.JSONDecodeError:
+                                pass
+
+        st.divider()
+
+        # Messages récents
+        st.subheader("💬 Messages récents")
+        recent = store.get_recent_messages(20)
+        for msg in recent:
+            direction = "📥" if msg["direction"] == "in" else "📤"
+            st.text(f"{direction} {msg['first_name'] or msg['phone'][:8]}: {msg['text'][:80]}")
+
+        store.close()
+    except Exception as e:
+        st.error(f"CRM non disponible: {e}")
 
 
 def render_multimodal_page() -> None:
@@ -183,15 +268,19 @@ def render_multimodal_page() -> None:
     st.markdown("Transcription vocale → texte → LLM, et Text-to-Speech")
 
     st.subheader("Transcription vocale (mock)")
-    audio_input = st.text_input("Simulez une transcription vocale...", placeholder="Qui a de l'expérience en React ?")
+    audio_input = st.text_input(
+        "Simulez une transcription vocale...", placeholder="Qui a de l'expérience en React ?"
+    )
 
     if audio_input and st.button("Traiter"):
-        st.info(f"Transcription reçue: \"{audio_input}\"")
+        st.info(f'Transcription reçue: "{audio_input}"')
         response = _process_chat_message(audio_input)
         st.write(f"**Réponse:** {response}")
 
     st.subheader("Text-to-Speech (mock)")
-    text_to_speak = st.text_area("Texte à vocaliser", placeholder="Marie Dubois a 4 ans d'expérience en React.")
+    text_to_speak = st.text_area(
+        "Texte à vocaliser", placeholder="Marie Dubois a 4 ans d'expérience en React."
+    )
     if text_to_speak and st.button("🔊 Vocaliser (mock)"):
         st.info(f"[TTS simulé] {text_to_speak}")
 
@@ -209,7 +298,13 @@ def main() -> None:
     # Navigation multi-pages
     page = st.sidebar.selectbox(
         "Navigation",
-        ["💬 Chat", "📊 Dashboard Matching", "📚 Bibliothèque CVs", "🎙️ Multimodal"],
+        [
+            "💬 Chat",
+            "📊 Dashboard Matching",
+            "📚 Bibliothèque CVs",
+            "📊 Pipeline CRM",
+            "🎙️ Multimodal",
+        ],
     )
 
     if "Chat" in page:
@@ -218,6 +313,8 @@ def main() -> None:
         render_matching_dashboard()
     elif "Bibliothèque" in page:
         render_cv_library()
+    elif "Pipeline CRM" in page:
+        render_crm_pipeline()
     elif "Multimodal" in page:
         render_multimodal_page()
 
