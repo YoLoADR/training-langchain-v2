@@ -25,8 +25,10 @@ Lancer :  python ateliers/atelier-05-chatbot-code-review/exercice.py
 # TODO 2 — importer index_code_repo depuis hirekit.ui.code_reviewer
 # from hirekit.ui.code_reviewer import index_code_repo
 
-# TODO 3 — importer ask_code_question depuis hirekit.ui.code_reviewer
-# from hirekit.ui.code_reviewer import ask_code_question
+# TODO 3 — importer ask_code_question_with_llm (GÉNÉRATION RÉELLE par le LLM)
+# ⚠️ Préférer ask_code_question_with_llm à ask_code_question : cette dernière
+# retourne des extraits bruts sans LLM, ce qui triche vis-à-vis de la mission.
+# from hirekit.ui.code_reviewer import ask_code_question_with_llm
 
 # TODO 4 — importer get_code_summary depuis hirekit.ui.code_reviewer
 # from hirekit.ui.code_reviewer import get_code_summary
@@ -51,7 +53,7 @@ def main() -> None:
     # retriever = index_code_repo("data/code_repo")
     # print(f"Repo indexé: retriever prêt ({type(retriever).__name__})")
 
-    # TODO 3 — Poser des questions sur le code
+    # TODO 3 — Poser des questions sur le code (GÉNÉRATION RÉELLE par le LLM)
     # print("\n=== Étape 3: Q&A sur le code ===\n")
     # questions = [
     #     "Où est gérée l'authentification ?",
@@ -61,7 +63,7 @@ def main() -> None:
     # ]
     # for question in questions:
     #     print(f"\nQ: {question}")
-    #     answer = ask_code_question(question, retriever)
+    #     answer = ask_code_question_with_llm(question, retriever)
     #     print(f"A: {answer[:300]}...")
 
     # TODO 4 — Résumé du repo

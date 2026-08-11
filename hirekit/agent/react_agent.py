@@ -78,11 +78,14 @@ def get_agent_executor(
         llm = get_chat_model(temperature=0.1)
 
     # Prompt ReAct standard avec variables obligatoires: tools, tool_names, agent_scratchpad
-    react_prompt = ChatPromptTemplate.from_messages([
-        ("system", REACT_SYSTEM_PROMPT),
-        ("human", "{input}"),
-        MessagesPlaceholder(variable_name="agent_scratchpad"),
-    ])
+    # L'ancien create_react_agent passe agent_scratchpad comme string (log accumulé),
+    # pas comme liste de messages — on utilise donc un template string, pas MessagesPlaceholder.
+    react_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", REACT_SYSTEM_PROMPT),
+            ("human", "{input}\n\n{agent_scratchpad}"),
+        ]
+    )
 
     # Construire l'agent ReAct
     agent = create_react_agent(llm, tools, react_prompt)
@@ -151,12 +154,14 @@ def get_agent_executor_with_memory(
     )
 
     # Prompt avec mémoire + variables obligatoires ReAct
-    react_prompt = ChatPromptTemplate.from_messages([
-        ("system", REACT_SYSTEM_PROMPT),
-        MessagesPlaceholder(variable_name="history", optional=True),
-        ("human", "{input}"),
-        MessagesPlaceholder(variable_name="agent_scratchpad"),
-    ])
+    # agent_scratchpad est passé comme string par l'ancien create_react_agent
+    react_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", REACT_SYSTEM_PROMPT),
+            MessagesPlaceholder(variable_name="history", optional=True),
+            ("human", "{input}\n\n{agent_scratchpad}"),
+        ]
+    )
 
     agent = create_react_agent(llm, tools, react_prompt)
 
@@ -253,10 +258,12 @@ def run_autonomous_agent(
     results = []
     for query in scenario:
         result = executor.invoke({"input": query})
-        results.append({
-            "query": query,
-            "output": result.get("output", ""),
-            "intermediate_steps": len(result.get("intermediate_steps", [])),
-        })
+        results.append(
+            {
+                "query": query,
+                "output": result.get("output", ""),
+                "intermediate_steps": len(result.get("intermediate_steps", [])),
+            }
+        )
 
     return results

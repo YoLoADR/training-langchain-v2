@@ -8,7 +8,7 @@
 
 ## 🚦 Pré-vol (avant de commencer) — 20 min
 
-- [ ] `pip install -e \".[dev]\"` a été lancé (package hirekit installé)
+- [ ] `pip install -e ".[dev]"` a été lancé (package hirekit installé)
 - [ ] `.env` contient une clé API valide (`ANTHROPIC_API_KEY=sk-ant-...` ou `OPENAI_API_KEY=sk-...`)
 - [ ] `python -c "import hirekit; print('OK')"` affiche OK
 - [ ] Les 30 CVs PDF sont présents dans `data/cvs/` (sinon : `python scripts/generate_cvs.py`)
@@ -22,7 +22,7 @@
 ## 🎯 La mission
 
 Le PM ai-hirekit te demande : **"À l'atelier 01, on a prouvé qu'un LLM nu hallucine
-sur les CVs. Maintenant,索引-les et fais-lui retrouver les vraies réponses. Je veux
+sur les CVs. Maintenant, indexe-les et fais-lui retrouver les vraies réponses. Je veux
 un Q&A sourcé : chaque réponse cite le CV source. Et le hallucination rate doit
 tomber à 0%."**
 
@@ -345,9 +345,14 @@ Remplis ce tableau avec tes résultats après avoir construit le RAG :
 
 ✋ **Checkpoint final** — `python ateliers/atelier-03-rag/checkpoints/check_final.py`
 
-**Rappel des 5 questions privées et réponses attendues** :
+**Rappel des 5 questions privées et vérité de comparaison (GROUND TRUTH)** :
 
-| Question | CV source | Réponse attendue |
+> ⚠️ Ces réponses ne doivent **pas** être affichées directement par ton code.
+> Elles servent de **vérité de comparaison** : ton RAG doit *générer* sa propre
+> réponse via `rag_chain.invoke(question)`, puis tu compares la sortie du LLM
+> à cette vérité pour mesurer le vrai hallucination rate.
+
+| Question | CV source | Vérité de comparaison |
 |---|---|---|
 | Quelle est l'expérience de Marie Dubois en React ? | `cv_001` | 4 ans, niveau avancé |
 | Combien d'années d'expérience en Python a Karim Benali ? | `cv_007` | 6 ans, niveau expert |

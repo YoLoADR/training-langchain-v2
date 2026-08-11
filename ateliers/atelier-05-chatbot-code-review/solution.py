@@ -8,7 +8,11 @@ Ne pas projeter pendant l'atelier — c'est la référence pour le formateur.
 """
 
 from hirekit.ui.telegram_bot import process_command
-from hirekit.ui.code_reviewer import index_code_repo, ask_code_question, get_code_summary
+from hirekit.ui.code_reviewer import (
+    index_code_repo,
+    ask_code_question_with_llm,
+    get_code_summary,
+)
 
 
 def main() -> None:
@@ -29,7 +33,10 @@ def main() -> None:
     retriever = index_code_repo("data/code_repo")
     print(f"Repo indexé: retriever prêt ({type(retriever).__name__})")
 
-    # TODO 3 — Q&A sur le code
+    # TODO 3 — Q&A sur le code (GÉNÉRATION RÉELLE par le LLM)
+    # ⚠️ On utilise ask_code_question_with_llm (LLM) et non ask_code_question
+    # (qui retourne juste des extraits bruts). Le but est que le LLM réponde
+    # en langage naturel depuis le code récupéré, comme un vrai code reviewer.
     print("\n=== Étape 3: Q&A sur le code ===\n")
     questions = [
         "Où est gérée l'authentification ?",
@@ -39,7 +46,7 @@ def main() -> None:
     ]
     for question in questions:
         print(f"\nQ: {question}")
-        answer = ask_code_question(question, retriever)
+        answer = ask_code_question_with_llm(question, retriever)
         print(f"A: {answer[:300]}...")
 
     # TODO 4 — Résumé du repo

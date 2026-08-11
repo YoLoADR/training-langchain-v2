@@ -24,16 +24,11 @@ QUESTIONS_PRIVEES = [
 ]
 
 REPONSES_ATTENDUES = {
-    "Quelle est l'expérience de Marie Dubois en React ?":
-        "Marie Dubois a 4 ans d'expérience en React (niveau avancé).",
-    "Combien d'années d'expérience en Python a Karim Benali ?":
-        "Karim Benali a 6 ans d'expérience en Python (niveau expert).",
-    "Quel est le dernier poste de Sophie Martin ?":
-        "Sophie Martin a été Senior Product Owner chez ProductCorp pendant 3 ans.",
-    "Quelles compétences DevOps a Léa Chen ?":
-        "Léa Chen maîtrise Kubernetes, Docker, Terraform, AWS, GitLab CI, Ansible, Prometheus et Linux.",
-    "Quel est le niveau d'anglais de Thomas Petit ?":
-        "Thomas Petit a un niveau d'anglais technique (B2).",
+    "Quelle est l'expérience de Marie Dubois en React ?": "Marie Dubois a 4 ans d'expérience en React (niveau avancé).",
+    "Combien d'années d'expérience en Python a Karim Benali ?": "Karim Benali a 6 ans d'expérience en Python (niveau expert).",
+    "Quel est le dernier poste de Sophie Martin ?": "Sophie Martin a été Senior Product Owner chez ProductCorp pendant 3 ans.",
+    "Quelles compétences DevOps a Léa Chen ?": "Léa Chen maîtrise Kubernetes, Docker, Terraform, AWS, GitLab CI, Ansible, Prometheus et Linux.",
+    "Quel est le niveau d'anglais de Thomas Petit ?": "Thomas Petit a un niveau d'anglais technique (B2).",
 }
 
 
@@ -65,10 +60,14 @@ def main() -> None:
     # Mini-lab: comparer les stratégies de chunking
     print("\nMini-lab: comparaison des stratégies de chunking...")
     stats = compare_chunking_strategies(cvs_docs, chunk_size=400)
-    print(f"  Fixed-size: {stats['fixed_size']['count']} chunks, "
-          f"taille moy={stats['fixed_size']['avg_size']:.0f} chars")
-    print(f"  Recursive:  {stats['recursive']['count']} chunks, "
-          f"taille moy={stats['recursive']['avg_size']:.0f} chars")
+    print(
+        f"  Fixed-size: {stats['fixed_size']['count']} chunks, "
+        f"taille moy={stats['fixed_size']['avg_size']:.0f} chars"
+    )
+    print(
+        f"  Recursive:  {stats['recursive']['count']} chunks, "
+        f"taille moy={stats['recursive']['avg_size']:.0f} chars"
+    )
 
     # TODO 3 — Construire les index vectoriels
     print("\nConstruction de l'index FAISS (CVs)...")
@@ -79,26 +78,29 @@ def main() -> None:
     chroma_store = build_chroma_index(offer_chunks)
     print("  Index ChromaDB construit")
 
-    # TODO 4 — Reposer les 5 questions privées avec le RAG
+    # TODO 4 — Reposer les 5 questions privées avec le RAG (GÉNÉRATION RÉELLE)
+    # ⚠️ La réponse doit être produite par le LLM (rag_chain.invoke), pas piochée
+    # dans REPONSES_ATTENDUES. Ce dict n'est qu'un GROUND TRUTH pour comparer.
     print("\n=== Questions privées avec RAG (anti-hallucination) ===\n")
     retriever = get_cv_retriever(search_type="similarity", k=4)
+    rag_chain = build_rag_chain(retriever=retriever)
 
     hallucination_count = 0
     for question in QUESTIONS_PRIVEES:
-        docs = retriever.invoke(question)
+        docs = retriever.invoke(question)  # étape de récupération
+        generated = rag_chain.invoke({"question": question})  # étape de GÉNÉRATION par le LLM
+        ground_truth = REPONSES_ATTENDUES[question]  # référence pour comparer
         print(f"Q: {question}")
         print(f"  Sources: {[d.metadata.get('filename', '?') for d in docs[:2]]}")
+        print(f"  A (LLM): {generated}")
+        print(f"  A (vérité): {ground_truth}")
 
-        # Vérifier si la réponse est dans les documents récupérés
-        answer = REPONSES_ATTENDUES[question]
-        name = question.split()[3] + " " + question.split()[4]  # extrait le nom
-        found_in_docs = any(name in doc.page_content for doc in docs)
-
-        if found_in_docs:
-            print(f"  A: {answer}")
-        else:
+        # Heuristique de comparaison : mots-clés de la vérité absents de la sortie LLM
+        keywords = [w for w in ground_truth.split() if len(w) > 3]
+        missing = [w for w in keywords if w not in generated]
+        if missing:
             hallucination_count += 1
-            print(f"  A: [hallucination] Réponse non trouvée dans les documents")
+            print(f"  [HALLUCINATION] mots-clés manquants: {missing}")
         print()
 
     hallucination_rate = hallucination_count / len(QUESTIONS_PRIVEES) * 100
@@ -112,8 +114,8 @@ def main() -> None:
     for question in QUESTIONS_PRIVEES[:2]:
         mmr_docs = mmr_retriever.invoke(question)
         sim_docs = sim_retriever.invoke(question)
-        mmr_sources = set(d.metadata.get('filename') for d in mmr_docs)
-        sim_sources = set(d.metadata.get('filename') for d in sim_docs)
+        mmr_sources = set(d.metadata.get("filename") for d in mmr_docs)
+        sim_sources = set(d.metadata.get("filename") for d in sim_docs)
         print(f"Q: {question[:50]}...")
         print(f"  MMR sources ({len(mmr_sources)}): {mmr_sources}")
         print(f"  Sim sources ({len(sim_sources)}): {sim_sources}")
